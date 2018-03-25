@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*div{
+            background: red;
+        }
+        #div1{
+            color: green;
+        }
+        #div2{
+            color: blue;
+        }
+        .aa{
+            color: aqua;
+        }
+        div span{
+            color:black;
+        }
+        div>span{
+            color: blue;
+            !*background: cadetblue;*!
+        }*/
+        .aa,p{
+            background: aqua;
+        }
+        #div1+p{
+            background: gold;
+        }
+        a:hover{
+            color:red;
+        }
+        a:active{
+            color: yellow;
+        }
+        #div5{
+            width: 100px;
+            height: 100px;
+            background: #ccc;
+        }
+        #div5::first-line{
+            color: red;
+        }
+        #div6::after{
+            content: '啊';
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--css选择器
+        1、标签选择器  div
+        2、id选择器（唯一id） #id
+        3、class选择器  .class
+        4、后代选择器(派生选择器) aa bb
+        5、子代选择器 aa>bb
+        6、分组选择器 .aa,p
+        7、伪类选择器 :hover
+        8、伪元素选择器 ::first-letter
+        -->
+    <div id="div1">
+        hahah
+    </div>
+    <p>vhik</p>
+    <div id="div2">
+        fsdjfh
+    </div>
+    <ul>
+        <li>001</li>
+        <li class="aa">002</li>
+        <li>003</li>
+        <li class="aa">004</li>
+    </ul>
+    <span>1321313aaaa</span>
+    <div>
+        <span>626131313xasa</span>
+    </div>
+    <div>
+        <p>
+            <span>6516513132</span>
+        </p>
+    </div>
+
+    <a href="#">cick me</a>
+
+    <div id="div5">
+        ahdjfhkdf lkl   ljkldaslfj    lklkddl     lkldcksdl     ldkcldsk   lkddjk
+    </div>
+    <br>
+    <div id="div6">
+        dgsjdgjhsf
+    </div>
+
+</body>
+</html>
