@@ -3,40 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="CSS/iconfont.css">
     <link rel="stylesheet" href="CSS/common.css">
     <link rel="stylesheet" href="CSS/index.css">
 </head>
 <body>
     <div class="nav">
-        <div class="wrapper nav-box">
+        <div class="wrapper nav-box"><!--wrapper元素居中-->
             <div class="nav-login">
                 <span>喵，欢迎来天猫</span>
                 <a href="#" class="login-btn">请登录</a>
                 <a href="#">免费注册</a>
             </div>
             <ul class="nav-menu">
-                <li>
+                <li class="sn-menu">
                     <a href="#"class="nav-link">我的淘宝</a>
-                    <b></b>
+                    <ul class="sub-sn-menu">
+                        <li class="sub-menu-item"><a href="#">已买到的宝贝</a></li>
+                        <li class="sub-menu-item"><a href="#">已卖出的宝贝</a></li>
+                    </ul>
                 </li>
                 <li>
-                    <a href="#" class="nav-link">购物车<span>0</span>件</a>
+                    <a href="#" class="nav-link">
+                        <i class="iconfont icon-gouwuche nav-icon"></i>
+                        购物车<span>0</span>件
+                    </a>
                 </li>
-                <li>
+                <li class="sn-menu">
                     <a href="#" class="nav-link">收藏夹</a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link">手机版</a>
+                    <a href="#" class="nav-link">
+                        <i class="iconfont icon-vertical_line"></i>
+                        <i class="iconfont icon-shouji nav-icon"></i>
+                        手机版
+                    </a>
                 </li>
                 <li>
                     <a href="#" class="nav-link">淘宝网</a>
                 </li>
-                <li>
+                <li class="sn-menu">
                     <a href="#" class="nav-link">商家支持</a>
+                </li>
+                <li class="sn-menu">
+                    <a href="#" class="nav-link">
+                        <i class="iconfont icon-liebiao nav-icon"></i>
+                        网站导航
+                    </a>
                 </li>
             </ul>
         </div>
     </div>
+    <div class="wrapper">
+        <img class="logo" src="images/logo.png" alt="logo">
+        <div class="search-box">
+            <div class="search">
+                <form action="#">
+                    <input type="text" class="search-text">
+                    <input type="submit" class="search-btn" value="搜索">
+                </form>
+            </div>
+            <div>
+                <ul class="search-menu">
+                    <li>
+                        <a href="#">针织衫</a>
+                    </li>
+                    <li>
+                        <a href="#">连衣裙</a>
+                    </li>
+                    <li>
+                        <a href="#">四件套</a>
+                    </li>
+                    <li>
+                        <a href="">摄像头</a>
+                    </li>
+                    <li>
+                        <a href="#">客厅灯</a>
+                    </li>
+                    <li>
+                        <a href="#">口红</a>
+                    </li>
+                    <li>
+                        <a href="#">手机</a>
+                    </li>
+                    <li>
+                        <a href="#">运动鞋</a>
+                    </li>
+                    <li>
+                        <a href="#">牛奶</a>
+                    </li>
+                </ul>
+            </div>
 
+        </div>
+
+    </div>
 </body>
 </html>

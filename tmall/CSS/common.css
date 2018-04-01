@@ -50,15 +50,68 @@ a{
         float: left;
     }
     .nav-link{
-        color: #999999;
+        color: #999;
         display: block;
-        padding: 0 10px;
+        padding: 0 14px 0 10px;
     }
     .nav-link span{
         color: #666;
         padding: 0 2px;
         font-weight: 700;
         font-family: Arial;
+    }
+    /*新学的*/
+    .sn-menu{
+        position: relative;
+    }
+    .sn-menu:hover{
+        background: #fff;
+        height: 34px;
+    }
+    .sn-menu:hover .sub-sn-menu{
+        display: block;
+    }
+    .sn-menu a:hover{
+        color: #FF0036;
+        text-decoration: underline;
+    }
+    .sn-menu:hover::after{
+        transform: rotate(180deg);
+    }
+    .sn-menu::after{
+        content:'';
+        width: 0;
+        height: 0;
+        border-width: 3px;
+        border-style: solid;
+        border-color: #999 transparent transparent transparent;
+        position: absolute;
+        right: 6px;
+        top: 16px;
+        transition: all 0.1s linear;
+        transform-origin: 3px 1.5px;
+    }
+    .sub-sn-menu{
+        background: #fff;
+        border: 1px solid #eee;
+        border-top: none;
+        padding: 10px 8px;
+        position: absolute;
+        left: -1px;
+        top: 34px;
+        width: 74px;
+        display: none;
+    }
+    .sub-menu-item{
+        line-height: 18px;
+        height: 18px;
+    }
+    .sub-menu-item a{
+        color: #999999;
+    }
+    .nav-icon{
+        color: #FF0036;
+        font-size: 14px;
     }
 
 
