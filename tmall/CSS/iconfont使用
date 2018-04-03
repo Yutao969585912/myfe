@@ -1,0 +1,5 @@
+1.iconfont.css  放到css文件夹下
+2. .eot .svg .ttf .woff  字体文件 放到font文件夹下  =>路径改为../font/
+3.页面中引入iconfont.css
+4.demo_fontclass.html文件中
+    <i class="iconfont icon-xxx"></i>

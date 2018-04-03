@@ -15,7 +15,7 @@ a{
     width: 1230px;
     margin: 0px auto;
 }
-/*nav开始*/
+/*nav Start*/
     .nav{
         height: 33px;
         background: #f2f2f2;
@@ -60,7 +60,9 @@ a{
         font-weight: 700;
         font-family: Arial;
     }
-    /*新学的*/
+/*nav End*/
+
+/*sn End*/
     .sn-menu{
         position: relative;
     }
@@ -116,4 +118,3 @@ a{
 
 
 
-/*nav结束*/

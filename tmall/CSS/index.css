@@ -1,12 +1,16 @@
+/*search Start*/
+.search-wrap{
+    overflow: hidden;
+}
 .logo{
-    width: 240px;
+    width: 290px;
     height: 130px;
     margin-left: -45px;
     float: left;
 }
 .search-box{
     float: left;
-    margin: 38px 0 0 120px;
+    margin: 38px 0 0 70px;
 }
 .search{
     width: 625px;
@@ -14,15 +18,16 @@
     border:2px solid #FF0036;
 }
 .search-text{
-    width: 491px;
-    height: 36px;
-    font-size: 12px;
+    width: 493px;
+    height: 24px;
+    font-size: 16px;
+    padding: 7px 3px 7px 5px;
     border: none;
     outline: none;/*去掉蓝边*/
     float: left;
 }
 .search-btn{
-    width: 134px;
+    width: 124px;
     height: 38px;
     border: none;
     background: #FF0036;
@@ -30,11 +35,98 @@
     font-size: 18px;
     color: #ffffff;
     float: left;
-}
-.search-menu>li{
-    float: left;
+    cursor: pointer;/*变小手*/
 }
 .search-menu{
     height: 24px;
-    font-size: 14px
+    font-size: 14px;
 }
+.search-menu li{
+    float: left;
+    padding: 2px 6px 0 0px;
+}
+.search-menu li a{
+    color: #999999;
+    font-size: 14px;
+}
+.search-menu li .search-menu-hot{
+    color: #FF0036;
+}
+/*search End*/
+
+/*menu Start*/
+.menu-box{
+    height: 35px;
+    border-bottom: 2px solid #FF0036;
+}
+.menu-list{
+    margin-left: 200px;
+    width: 1030px;
+}
+.menu-list li{
+    float: left;
+    height: 35px;
+    line-height: 35px;
+}
+.menu-list img{
+    width: 100px;
+    margin-top: 3px;
+}
+.menu-list a:hover{
+    color: #FF0036;
+}
+.menu-list a{
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    padding: 0 8px;
+    font-family: "Microsoft YaHei",SimSun,'\5b8b\4f53',sans-serif;
+}
+/*menu End*/
+
+/*slide(轮播图) Start*/
+.slide-box{
+    position: relative;
+}
+.slide-item{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+.slide-item-link{
+    width: 1230px;
+    /*width: 100%;*/
+    display: block;
+    margin: 0 auto;
+}
+.slide-item-link img{
+    width: 1230px;
+    height: 500px;
+    /*width: 100%;*/
+}
+.slide-item6{
+    background: #FF0036;
+}
+
+/*slide End*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
