@@ -94,25 +94,43 @@
     left: 0px;
     top: 0px;
     width: 100%;
+    z-index: -1;/*z-index 设置元素的堆叠顺序 仅在定位元素上生效 可为负值*/
 }
 .slide-item-link{
     width: 1230px;
-    /*width: 100%;*/
     display: block;
     margin: 0 auto;
 }
 .slide-item-link img{
     width: 1230px;
     height: 500px;
-    /*width: 100%;*/
+    display: block;/*去掉图片边框*/
+}
+.slide-item1{
+    background: #13256a;
+ }
+.slide-item2{
+    background: #e8e8e8;
+}
+.slide-item3{
+    background: #78cbe9;
+}
+.slide-item4{
+    background: #e8e8e8;
+}
+.slide-item5{
+    background: #291d8e;
 }
 .slide-item6{
-    background: #FF0036;
+    background: #fee9ec;
 }
-
 /*slide End*/
 
+/*category Start*/
+.category-box{
 
+}
+/*category End*/
 
 
 
