@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5-5</title>
+</head>
+<body>
+    <!--
+
+    编写一个非递归函数factorial(n)，计算12!-10!的结果。
+
+    -->
+<script>
+    function factorial(n) {//求n的阶乘 n！
+        var j=1;
+        for(var i=1;i <=n;i++){
+            j=j*i;
+        }
+        return j;
+    }
+    var n=factorial(12)-factorial(10);
+    document.write("12!-10!="+n);
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>右键菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #ul1{
+            width: 120px;
+            border: 1px solid #999999;
+            border-radius: 10px;/*圆润边框*/
+            list-style: none;
+            display: none;/*隐藏*/
+            position: absolute;/*给父元素定位*/
+        }
+        li{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;/*行居中*/
+            color: #555;
+            font-size: 14px;
+        }
+        li:hover{
+            background: darkturquoise;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul1">
+        <li>设为代办</li>
+        <li>设为已读</li>
+        <li>置顶邮件</li>
+        <li>添加备注</li>
+        <li>删除</li>
+    </ul>
+    <script>
+        var aId = document.getElementById('ul1');
+        document.oncontextmenu = function (e) {
+            aId.style.display = 'block';
+
+            //取当前鼠标位置
+            var left = e.clientX;
+            var top = e.clientY;
+
+            //相对于鼠标位置定位
+            aId.style.left = left+"px";
+            aId.style.top = top+"px";
+
+            //阻止默认行为
+            return false;
+        }
+        //点击选项消失
+        var aLi = document.getElementsByTagName('li');
+        for(var i=0; i<aLi.length; i++ ){
+            aLi[i].onclick = function () {
+                console.log(this.innerHTML);//this.innerHTML 取当前标签的内容
+                aId.style.display = 'none';
+            }
+        }
+        //点击全局列表消失
+        document.onclick = function (e) {
+            if(e.target != 'li'){
+                console.log('取消');
+                aId.style.display = 'none';
+            }
+        }
+
+    </script>
+</body>
+</html>

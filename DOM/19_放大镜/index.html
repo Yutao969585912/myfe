@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 300px;
+            height: 450px;
+            position: relative;
+        }
+        #div1 img{
+            width: 300px;
+            height: 450px;
+        }
+        #div2{
+            width: 100px;
+            height: 150px;
+            background: rgba(255,255,255,0.35);
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #div3{
+            width: 300px;
+            height: 450px;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 300px;
+            display: none;
+        }
+        #img{
+            width: 900px;
+            height: 1350px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <img src="aaa.jpg" alt="">
+        <div id="div2">
+        </div>
+    </div>
+    <div id="div3">
+        <img id="img" src="aaa.jpg" alt="">
+    </div>
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        var oDiv2 = document.getElementById('div2');
+        var oDiv3 = document.getElementById('div3');
+        var oImg = document.getElementById('img');
+        oDiv1.onmouseover = function (e) {//鼠标滑入显示
+            oDiv2.style.display = 'block';
+            oDiv3.style.display = 'block';
+        }
+        oDiv1.onmouseout = function () {//鼠标滑出隐藏
+            oDiv2.style.display = 'none';
+            oDiv3.style.display = 'none';
+        }
+        oDiv1.onmousemove = function (e) {//移动框
+            e = e || window.event;
+            var left = e.clientX - oDiv2.offsetWidth/2;
+            var top = e.clientY - oDiv2.offsetHeight/2;
+            var LeftMax = oDiv1.offsetWidth - oDiv2.offsetWidth;
+            var TopMax = oDiv1.offsetHeight - oDiv2.offsetHeight;
+            if(left <= 0){
+                left = 0;
+            }else if(left >=LeftMax){
+                left = LeftMax;
+            }
+            if(top <= 0){
+                top = 0;
+            }else if(top >= TopMax){
+                top = TopMax;
+            }
+            oDiv2.style.left = left +"px";
+            oDiv2.style.top = top +"px";
+            var width = left/LeftMax;//计算移动的比例
+            var height = top/TopMax;
+            var ImgLeft = (oImg.offsetWidth-oDiv3.offsetWidth)*width;//计算大图的位置
+            var ImgTop = (oImg.offsetHeight-oDiv3.offsetHeight)*height;
+            oImg.style.top = -ImgTop + "px";//设置大图的位置信息
+            oImg.style.left = -ImgLeft + "px";
+        }
+    </script>
+</body>
+</html>

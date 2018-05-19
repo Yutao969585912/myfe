@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画1</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+    <script>
+        /*
+        oDiv.style.width   只对内联属性有效
+        */
+        var oDiv = document.getElementById('div1');
+        oDiv.onmouseover = function () {
+            if(oDiv.offsetWidth < 800){
+                var timer = setInterval(function () {
+                    oDiv.style.width = oDiv.offsetWidth + 30 + 'px';
+                    if(oDiv.offsetWidth >= 800){
+                        clearInterval(timer);
+                    }
+                },20)
+            }
+        }
+    </script>
+</body>
+</html>

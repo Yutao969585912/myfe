@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5-7</title>
+</head>
+<body>
+    <!--
+
+    Fibonacci[1,1,2,3,5,8,13,21,34,55........]
+    斐波纳契（Fibonacci）数列的第一项是1，第二项是1，
+    以后各项都是前两项的和。试用递归函数和非递归函数
+    各编写一个程序，求斐波纳契数列第N项的值。
+
+    -->
+<script>
+    function fib(n) {//递归函数
+        if(n<=2){
+            return 1;
+        }
+        return fib(n-1)+fib(n-2);
+    }
+    function Fib(n) {//非递归函数
+        if(n<=2){
+            return 1;
+        }
+        var f1=1,f2=1,temp;
+        for(var i=3;i<=n;i++){
+            temp=f1+f2;
+            f1=f2;
+            f2=temp;
+        }
+        return temp;
+    }
+    var n=prompt("请输入项数：",'');
+    document.write("Fibonacci["+n+"] = "+fib(n));
+    document.write('</br>');
+    document.write("Fibonacci["+n+"] = "+Fib(n));
+</script>
+</body>
+</html>

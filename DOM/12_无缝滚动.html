@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝滚动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #content{
+            width: 400px;
+            height: 200px;
+            border:1px solid #000;
+            margin: 100px auto;
+            overflow: hidden;
+            position: static;
+        }
+        ul{
+            width: 520px;
+            overflow: hidden;
+            position: absolute;
+        }
+        li{
+            width: 120px;
+            height: 120px;
+            background: blueviolet;
+            float: left;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 120px;
+            font-size: 35px;
+            color: #fff;
+        }
+        #btn{
+            width: 210px;
+            margin: 135px auto;
+        }
+        #btn span{
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: #666666;
+            font-size: 30px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <ul id="img-box">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="btn">
+            <span>向左</span>
+            <span>向右</span>
+        </div>
+    </div>
+    <script>
+        var oImgBox = document.getElementById('img-box');
+        //复制内容
+        oImgBox.innerHTML += oImgBox.innerHTML;
+        //宽度翻倍
+        oImgBox.style.width = oImgBox.offsetWidth *2 + 'px';
+        setInterval(function () {
+            if(oImgBox.offsetLeft <= -oImgBox.offsetWidth/2){
+                oImgBox.style.left = 0;
+            }
+            oImgBox.style.left = oImgBox.offsetLeft -4 + 'px';
+        },20);
+    </script>
+</body>
+</html>

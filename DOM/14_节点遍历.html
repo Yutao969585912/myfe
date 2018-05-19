@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点遍历</title>
+</head>
+<body>
+    <ul id="ul">
+        <li>111</li>
+        <li id="li1">222</li>
+        <li id="li2">333</li>
+        <li>444</li>
+    </ul>
+    <script>
+        /*
+
+        元素遍历：
+         nextSibling        不兼容 =>next()       指向后一个兄弟节点；如果这个节点就是最后一个兄弟节点，那么该值为null
+         previousSibling    不兼容 =>previous()   指向前一个兄弟节点；如果这个节点就是第一个兄弟节点，那么该值为null
+         firstChild         不兼容 =>first()      指向在childNodes列表中的第一个节点
+         lastChild          不兼容 =>last()       指向在childNodes列表中的最后一个节点
+         childNodes         不兼容 =>children     所有子节点的列表
+
+         */
+
+        var oUl = document.getElementById('ul');
+        var oLi1 = document.getElementById('li1');
+        var oLi2 = document.getElementById('li2');
+        function next(elem) {//封装函数，返回元素下一个节点
+            do{
+                elem = elem.nextSibling;
+            }while (elem && elem.nodeType != 1)
+            //elem 判断元素是否是null
+            return elem;
+        }
+        function previous(elem) {//封装函数，返回元素上一个节点
+            do{
+                elem = elem.previousSibling;
+            }while (elem && elem.nodeType != 1)
+            //elem 判断元素是否是null
+            return elem;
+        }
+        function first(elem) {//封装函数，返回第一个元素节点
+            elem = elem.firstChild;
+            if(elem.nodeType !=1){
+                elem = next(elem);
+            }
+            return elem;
+        }
+        function last(elem) {//封装函数，返回最后一个元素节点
+            elem = elem.lastChild;
+            if(elem.nodeType !=1){
+                elem = previous(elem);
+            }
+            return elem;
+        }
+        console.log(next(oLi1));
+        console.log(previous(oLi2));
+        console.log(first(oUl));
+        console.log(last(oUl));
+        console.log(oUl.children);
+
+    </script>
+</body>
+</html>

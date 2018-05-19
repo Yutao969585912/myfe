@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* var num = 0;
+    var timer = setInterval(function () {
+        num++;
+        console.log(Math.random());
+        if(num == 0){
+            clearInterval(timer);
+        }
+    },1000);*/
+
+    var timer1 = setInterval(function () {
+        console.log('sdfsd');
+    },1000);
+
+    clearInterval(timer1);  //取消指定的setInterval函数将要执行的代码
+
+    //只执行一次
+    var timer2 = setTimeout(function(){
+        console.log('haha');
+    },1000);
+
+    clearTimeout(timer2);//取消指定的setTimeout函数将要执行的代码
+</script>
+</body>
+</html>

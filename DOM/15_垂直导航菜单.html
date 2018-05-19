@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垂直导航菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 200px;
+            border: 1px solid #000;
+        }
+        #container h2{
+            background: #000;
+            color: #fff;
+        }
+        #container ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="container">
+        <li>
+            <h2>管理区</h2>
+            <ul class="btn-box">
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </li>
+        <li>
+            <h2>交流区</h2>
+            <ul class="btn-box">
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        var aH2 = document.getElementsByTagName('h2');
+        var aUl = document.getElementsByClassName('btn-box');
+/*
+            //标识符法一
+            for(var i=0; i<aH2.length; i++){
+                aH2[i].index = i;//标识
+                aH2[i].flag = false;//记录当前属性，false为显示，true为隐藏
+                aH2[i].onclick = function () {
+                    if(this.flag){
+                        aUl[this.index].style.display = 'none';
+                        this.flag = false;
+                    }else {
+                        aUl[this.index].style.display = 'block';
+                        this.flag = true;
+                    }
+                }
+            }
+*/
+/*
+        //标识符法二
+        for(var i=0; i<aH2.length; i++){
+            aH2[i].index = i;//标识
+            aH2[i].onclick = function () {
+                if(aUl[this.index].style.display == 'none' || aUl[this.index].style.display ==''){
+                    aUl[this.index].style.display = 'block';
+                }else{
+                    aUl[this.index].style.display = 'none';
+                }
+            }
+        }
+
+*/
+
+        for(var i=0; i<aH2.length; i++){
+            aH2[i].onclick = function () {
+                var oUl = next(this);//选择当前对象 h2 标签的下一个节点 ul 标签
+                //oUl.style.display 只对内联有效，js中点击把 ul 变成内联，返回空
+                console.log(oUl.style.display);
+                if(oUl.style.display == 'none' || oUl.style.display == ''){
+                    oUl.style.display = 'block';
+                }else{
+                    oUl.style.display = 'none';
+                }
+            }
+        }
+        function next(elem) {//封装函数，返回元素下一个节点
+            do{
+                elem = elem.nextSibling;
+            }while (elem && elem.nodeType != 1)
+            //elem 判断元素是否是null
+            return elem;
+        }
+    </script>
+
+</body>
+</html>

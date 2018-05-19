@@ -106,7 +106,7 @@
     height: 500px;
     display: block;/*去掉图片边框*/
 }
-.slide-item1{
+/*.slide-item1{
     background: #13256a;
  }
 .slide-item2{
@@ -123,7 +123,7 @@
 }
 .slide-item6{
     background: #fee9ec;
-}
+}*/
 /*slide End*/
 
 /*category Start*/
@@ -132,7 +132,14 @@
 }
 /*category End*/
 
-
+/*tmall-mart Start*/
+.mart-right{
+    width: 995px;
+    height: 618px;
+    float: left;
+    background: #FF0036;
+}
+/*tmall-mart End*/
 
 
 

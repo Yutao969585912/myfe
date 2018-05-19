@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //alert('aaa');
+
+        //window.onload 等页面中所有的资源都加载完成再执行
+    /*    window.onload = function () {
+            console.log('dsccsxccdas');
+            var oDiv1 = document.getElementById('div1');
+            console.log(oDiv1);
+            oDiv1.onclick = function () {
+                console.log('bvhgvcvcv');
+            }
+        }*/
+    </script>
+</head>
+<body>
+    <div id="div1">safdssd</div>
+    <div>dfsfvvvvv</div>
+    <div>gmnhgv</div>
+    <div>6526232</div>
+    <ul id="ul1">
+        <li class="aa">001</li>
+        <li>002</li>
+        <li class="cc aa bb">003</li>
+        <li>004</li>
+        <li class="aabb">005</li>
+        <li>233232223</li>
+    </ul>
+    <ul>
+        <li class="aa">001</li>
+        <li>002</li>
+        <li class="cc aa bb">003</li>
+        <li>004</li>
+        <li class="aabb">005</li>
+        <li>233232223</li>
+    </ul>
+    <input type="radio" name=""/>
+    <input type="text" name="username"/>
+    <!--//按顺序执行代码-->
+    <script>
+/*
+        console.log('ddddsdddds');
+        //通过id获取元素
+        var oDiv1 = document.getElementById('div1');//
+        console.log(oDiv1);
+        oDiv1.onclick = function () {
+            console.log('div');
+        }
+*/
+
+
+/*
+
+        //类数组方法，返回一个数组
+        var aDiv1 = document.getElementsByTagName('div');
+
+        console.log(aDiv1);
+        console.log(aDiv1[2]);//通过数组下标取特定元素
+        for(var i=0; i<aDiv1.length; i++){  //通过数组遍历所有元素
+            aDiv1[i].onclick = function () {
+                console.log(123456);
+            }
+        }
+        aDiv1.push(111);//push() 方法可向数组的末尾添加一个或多个元素，并返回新的长度
+*/
+
+/*
+        //通过class获取元素
+        //JS可以动态修改样式，CS为静态，直接加载
+        var aLi = document.getElementsByClassName('aa');
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].style.background = 'red';
+        }
+
+        //部分浏览器不兼容getElementsByClassName方法，故封装
+        // 一个函数getEleByClass==getElementsByClassName
+        function getEleByClass(clsName) {
+            var result = [];
+            var aEle = document.getElementsByTagName('*');//获取所有元素
+            for(var i=0; i<aEle.length; i++){
+                var str = aEle[i].className;
+                var arr = str.split(' ');//	split把字符串分割为字符串数组
+                for(var j=0; j<arr.length; j++) {
+                    if (arr[j] == clsName) {
+                        result.push(aEle[i]);
+                    }
+                }
+            }
+            return result;
+        }
+        var aA = getEleByClass('aa');
+        for(var i=0; i<aA.length; i++){
+            aA[i].style.background = 'red';
+        }
+*/
+/*
+
+        //部分浏览器不兼容getElementsByClassName方法，故封装
+        // 一个函数getEleByClass==getElementsByClassName
+        function getEleByClass(clsName,context) {
+            var result = [];
+            context = context || document;
+            var aEle = context.getElementsByTagName('*');//获取所有元素
+            for(var i=0; i<aEle.length; i++){
+                var str = aEle[i].className;
+                var arr = str.split(' ');//	split把字符串分割为字符串数组
+                for(var j=0; j<arr.length; j++) {
+                    if (arr[j] == clsName) {
+                        result.push(aEle[i]);
+                    }
+                }
+            }
+            return result;
+        }
+        var oUl = document.getElementById('ul1');
+        var aA = getEleByClass('aa',oUl); //className  从oUl下找
+        for(var i=0; i<aA.length; i++){
+            aA[i].style.background = 'red';
+        }
+*/
+/*
+        //通过 Name 获取元素
+        var aInput = document.getElementsByName('username');
+        console.log(aInput);
+        aInput[0].style.background = "green";
+*/
+/*
+        //通过选择器获取元素
+        var oDiv = document.querySelector('#div1');
+        console.log(oDiv);
+
+        var oUl = document.querySelector('li');//返回 DOM对象，若有多个，返回第一个
+        console.log(oUl);
+
+
+        var aLi = document.querySelectorAll('li');//返回数组
+        console.log(aLi);
+*/
+
+    </script>
+</body>
+</html>
+
+
+

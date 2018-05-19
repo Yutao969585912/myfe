@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回到顶部</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 3000px;
+        }
+        #btn{
+            width: 34px;
+            height: 66px;
+            background: url(go-top.jpeg) -22px -5px no-repeat;
+            position: fixed;
+            right: 30px;
+            bottom: 50px;
+        }
+        #btn:hover{
+            background-position: -113px -4px;
+        }
+    </style>
+</head>
+<body>
+    gsdjifdg
+    <p>fsdfsddsf</p>
+    <p>cdfsdfzxc</p>
+    sfdzxcdd
+    <p>dsfdsvfsd</p>
+    <p>dfsdfsdfsd</p>
+    <a id="btn" href="javascript:;"></a><!--取消点击a标签刷新页面过程-->
+<script>
+    var oBtn = document.getElementById('btn');
+    oBtn.onclick = function () {    //点击事件   固定语法
+        //window.scrollTo(0,0);
+
+        // document.documentElement 指向HTML
+        var scrollTop = document.documentElement.scrollTop||document.body.scrollTop; //获取滚动条距离上边的高度
+        var timer = setInterval(function(){
+            scrollTop -= 20;
+            window.scrollTo(0,scrollTop);
+            if(scrollTop <=0){
+                clearInterval(timer);
+            }
+        },8);
+    }
+</script>
+</body>
+</html>

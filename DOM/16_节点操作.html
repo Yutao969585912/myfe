@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节点操作</title>
+</head>
+<body>
+    <div id="div1">
+        1111
+    </div>
+    <div id="div2">
+        div2222
+    </div>
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        var oDiv2 = document.getElementById('div2');
+        var oSpan = document.createElement('span');//创建一个标签
+        oSpan.innerHTML = 'hahahh';
+
+        oDiv1.appendChild(oSpan);//在 div 内部的后面插入 span
+        //var oDiv3 = oDiv1.cloneNode();//复制 div1 命名为 oDiv3 (只复制样式，不复制内容)
+        var oDiv3 = oDiv1.cloneNode(true);//深克隆，样式内容一起复制
+        oDiv2.appendChild(oDiv3);
+
+
+    </script>
+</body>
+</html>

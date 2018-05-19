@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图2-无缝滚动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 750px;
+            height: 291px;
+            margin: 50px auto;/*页面居中*/
+            overflow: hidden;/*溢出隐藏*/
+            position: relative;/*相对定位，原空间不释放*/
+        }
+        #img-box{
+            width: 4500px;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #img-box a{
+            float: left;/*左浮动，隐藏边框*/
+        }
+        #btn-box{
+            position: absolute;/*绝对定位，相对于最近已定义祖先元素，空间释放*/
+            right: 10px;
+            bottom: 10px;
+        }
+        #arrow-box{
+            position: absolute;/*绝对定位，相对于最近已定义祖先元素，空间释放*/
+            left: 10px;
+            bottom: 10px;
+        }
+        #btn-box li,#arrow-box span{
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            float: left;
+            background: rgba(0,0,0,0.5);/*设置透明度*/
+            margin-right: 5px;
+            border-radius: 5px;
+            text-align: center;
+            color: #fff;
+            font-size: 13px;
+            cursor: pointer;/*鼠标变小手*/
+        }
+        #btn-box li.selected{
+            background: gold;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="img-box">
+            <a href="#">
+                <img src="images/1.jpg" alt="">
+            </a>
+            <a href="#">
+                <img src="images/2.jpg" alt="">
+            </a>
+            <a href="#">
+                <img src="images/3.jpg" alt="">
+            </a>
+            <a href="#">
+                <img src="images/4.jpg" alt="">
+            </a>
+            <a href="#">
+                <img src="images/5.jpg" alt="">
+            </a>
+            <a href="#">
+                <img src="images/1.jpg" alt="">
+            </a>
+        </div>
+
+        <ul id="btn-box">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+
+        <ul id="arrow-box">
+            <span id="previous">&lt;</span>
+            <span id="next">&gt;</span>
+        </ul>
+    </div>
+    <script src="jslib.js"></script>
+    <script>
+        var oContainer = document.getElementById('container');
+        var oBtnBox = document.getElementById('btn-box');
+        var aBtn = oBtnBox.getElementsByTagName('li');
+        var oImgBox = document.getElementById('img-box');
+        var aImg = oImgBox.getElementsByTagName('img');
+        var oNext = document.getElementById('next');
+        var oPrevious = document.getElementById('previous');
+        var count = 0;//定义索引，记录当前所在页面
+        var timer;
+
+        //按钮控制轮播图
+
+        /*点击按钮的索引：  0  1       2       3        i
+          div挪动的left值：0  -1*img  -2*img  -3*img   -i*img
+
+          */
+        function chang(idx) {
+            for(var j=0; j<aBtn.length; j++){
+                aBtn[j].className = '';
+            }
+            aBtn[idx == aBtn.length? 0:idx].className = 'selected';
+            animate(oImgBox,{
+                left:-idx * aImg[0].offsetWidth
+            });
+            //oImgBox.style.left = -idx * aImg[0].offsetWidth + 'px';
+        }
+        for(var i=0; i<aBtn.length; i++){ //加载页面  i=5
+            aBtn[i].index = i;//i= 0~4,通过循环，记录当前按钮索引
+            aBtn[i].onclick = function () {
+                chang(this.index);
+                count = this.index;//点击按钮时更新count数值
+            }
+        }
+        oNext.onclick = function () {
+            count++;
+            if(count == aImg.length){
+                count = 1;
+                oImgBox.style.left = 0;
+            }
+            chang(count);
+        }
+        oPrevious.onclick = function () {
+            count--;
+            if(count <0){
+                count = aBtn.length-1;
+                oImgBox.style.left = -3750 +'px';
+            }
+            chang(count);
+        }
+
+        //设置定时器，自动轮播图片
+        run();//进入页面时自动轮播图片
+        oContainer.onmouseover = function () {// 鼠标滑入，清除定时器，暂停轮播图片
+            clearInterval(timer);
+        }
+        oContainer.onmouseout = function () {//鼠标滑出，重新开启新定时器，自动轮播图片
+            run();
+        }
+        function run() {//run() 函数设置定时器
+            timer = setInterval(function () {
+                oNext.onclick();
+            },2000);
+        }
+    </script>
+</body>
+</html>
