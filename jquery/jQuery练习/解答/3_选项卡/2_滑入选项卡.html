@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑入选项卡</title>
+    <script src="../jquery-1.12.4.js"></script>
+    <style>
+        ul,li{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+        }
+        li{
+            float:left;
+            background-color:#aaa;
+            color:white;
+            padding:5px;
+            margin-right:2px;
+            border:1px solid white;
+            cursor: pointer;
+        }
+        div{
+            clear:left;
+            background-color:#777;
+            color:white;
+            width:300px;
+            height:100px;
+            padding:10px;
+            display:none;
+        }
+        .divOne{
+            display:block;
+        }
+        .liOne{
+            background-color:#777;
+            border:1px solid #777;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="liOne">标签1</li>
+        <li>标签2</li>
+        <li>标签3</li>
+    </ul>
+    <div class="divOne">我是内容1</div>
+    <div>我是内容2</div>
+    <div>我是内容3</div>
+    <script>
+        $('li').mouseover(function () {
+            $(this).addClass('liOne').siblings().removeClass('liOne');
+            $('div').hide();
+            $('div').eq($(this).index()).show();
+        })
+    </script>
+</body>
+</html>

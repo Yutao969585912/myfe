@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery原理</title>
+</head>
+<body>
+    <div id="div1">
+        56456456
+    </div>
+    <div class="aa">
+        56632222
+    </div>
+
+<!--
+
+    jq最核心的是$,他是一个函数.函数中返回一个自定义的jq对象,她是一个类,在这个类的原形下有许多jq自定义
+    的方法. 每次调用$返回一个新的jq对象,同时在Jquery类中根据传入参数的类型,函数或者字符串.
+    // 把选中的元素存在数组中,遍历这个数组,取出每个元素进行dom操作.
+    // 在每一个方法中,return this,this就是在$函数中返回的jq对象..链式操作
+
+-->
+
+
+    <script>
+        function $(selector) {
+            return new Jquery(selector);
+        };
+
+        /*部分浏览器不兼容getElementsByClassName方法，故封装*/
+        function getEleByClass(clsName) {
+            var result = [];
+            var aEle = document.getElementsByTagName('*');//获取所有元素
+            for(var i=0; i<aEle.length; i++){
+                var str = aEle[i].className;
+                var arr = str.split(' ');//	split把字符串分割为字符串数组
+                for(var j=0; j<arr.length; j++) {
+                    if (arr[j] == clsName) {
+                        result.push(aEle[i]);
+                    }
+                }
+            }
+            return result;
+        };
+
+        /*Jquery类*/
+        function Jquery(sel) {
+            this.elements = [];
+            if(typeof sel == 'string'){
+                if(sel.charAt(0) == '#'){//sel = '#div1'
+                    this.elements.push(document.getElementById(sel.substring(1)));
+                }else if(sel.charAt(0) == '.'){//sel = '.aa'
+                    this.elements = getEleByClass(sel.substring(1));
+                }
+            }
+            if(typeof sel == 'function'){
+                document.addEventListener('DOMContentLoad',sel,false);
+            }
+        };
+        Jquery.prototype.css = function(attr,val) {
+            for(var i=0; i<this.elements.length; i++){
+                if(typeof attr == 'string' && typeof val == 'string'){
+                    this.elements[i].style[attr] = val;
+                }else if(typeof attr == 'object' && typeof val == 'undefined'){
+                    for(key in attr){
+                        this.elements[i].style[key] = attr[key];
+                    }
+                }
+            }
+            return this;
+        };
+        Jquery.prototype.on = function(type,fn){
+            for(var i=0; i<this.elements.length; i++){
+                this.elements[i].addEventListener(type,fn,false);
+            }
+            return this;
+        };
+        //$('#div1').css('background','red');
+        $('#div1').css({
+            width:'220px',
+            height:'100px',
+            background:'red'
+        }).on('click',function () {
+            alert('123');
+        });
+        $('.aa');
+        $(function () {
+            console.log(22222222);
+        });
+
+    </script>
+</body>
+</html>

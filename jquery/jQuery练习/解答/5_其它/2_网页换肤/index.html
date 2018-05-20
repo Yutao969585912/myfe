@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页换肤</title>
+    <script src="../../jquery-1.12.4.js"></script>
+    <script src="cookies.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            margin: 20px;
+        }
+        ul{
+            width: 210px;
+            height: 30px;
+            border: 1px solid #CCCCCC;
+        }
+        li{
+            width: 15px;
+            height: 15px;
+            background: url("theme.gif") 0 0 no-repeat;
+            float: left;
+            margin:5px;
+            cursor: pointer;
+        }
+        li:nth-child(1){
+            background-position: 0 0;
+        }
+        li:nth-child(1).active{
+            background-position:0 -15px ;
+        }
+        li:nth-child(2){
+            background-position: -20px 0;
+        }
+        li:nth-child(2).active{
+            background-position:-20px -15px ;
+        }
+        li:nth-child(3){
+            background-position: -40px 0;
+        }
+        li:nth-child(3).active{
+            background-position:-40px -15px ;
+        }
+        li:nth-child(4){
+            background-position: -60px 0;
+        }
+        li:nth-child(4).active{
+            background-position:-60px -15px ;
+        }
+        li:nth-child(5){
+            background-position: -80px 0;
+        }
+        li:nth-child(5).active{
+            background-position:-80px -15px ;
+        }
+        li:nth-child(6){
+            background-position: -100px 0;
+        }
+        li:nth-child(6).active{
+            background-position:-100px -15px ;
+        }
+        .news{
+            width: 100px;
+            height: 40px;
+            float: left;
+            background: #999999;
+            margin: 10px 10px 10px 0;
+        }
+        .skin0{
+            background: #999999;
+        }
+        .skin1{
+            background: #AFD400;
+        }
+        .skin2{
+            background: #FBA60A;
+        }
+        .skin3{
+            background: #08BECE;
+        }
+        .skin4{
+            background: #E31559;
+        }
+        .skin5{
+            background: #BB3BD9;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <div class="news">
+            时事新闻
+        </div>
+        <div class="news">
+            娱乐新闻
+        </div>
+    </div>
+    <script>
+        $('li').on('click',function () {
+            $(this).addClass('active').siblings().removeClass('active');
+            $('.news').attr('class','news skin'+$(this).index());
+            setCookie('skin',$(this).index(),10);//在 Cookies 里保存当前索引的值
+        })
+        var index = getCookie('skin');//获取 Cookies 里的索引值
+        $('li').eq(index).trigger('click');//执行当前索引的绑定事件
+    </script>
+</body>
+</html>
