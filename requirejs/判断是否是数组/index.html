@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断是否是数组</title>
+</head>
+<body>
+<script src="../require.js" data-main="index.js"></script>
+<script>
+    var a = 10;
+    console.log(typeof a);
+    var arr = [1,2,3,4];
+    //三个基本方法判断是否是数组
+    console.log( arr instanceof Array); //arr是否是Array 的实例化对象
+
+    console.log(  arr.constructor == Array); //arr.constructor  返回arr的构造函数
+
+    console.log(  Array.isArray(arr)  );  //ie9以上兼容
+
+</script>
+</body>
+</html>
