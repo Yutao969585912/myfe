@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类-示例</title>
+</head>
+<body>
+<script>
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.say = function(){
+        console.log(this.name +" is say....");
+    }
+
+    var person1 = new Person('zs',20);
+
+    var person2 = new Person('lisi',10);
+
+    person2.say();
+
+
+
+
+
+</script>
+
+</body>
+</html>

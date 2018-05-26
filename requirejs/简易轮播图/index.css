@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+#content1{
+    float: left;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+#content2{
+    float: right;
+    margin-top: 20px;
+    margin-right: 50px;
+}
+.container{
+    width: 550px;
+    height: 321px;
+    margin: 0 auto;
+    position: relative;
+}
+.img-box img{
+    display: none;
+}
+.img-box .selected{
+    display: block;
+}
+.tab{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.prev,.next,.tab li{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background: #000;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.tab li{
+    float: left;
+    margin-right: 10px;
+}
+.tab li.round{
+    border-radius: 50%;
+}
+.tab li.square{
+    border-radius: 0;
+}
+.tab li.selected{
+    background: orange;
+}
+.prev-bottom{
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+.next-bottom{
+    position: absolute;
+    left: 45px;
+    bottom: 10px;
+}
+.prev-center{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -10px;
+}
+.next-center{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -10px;
+}
