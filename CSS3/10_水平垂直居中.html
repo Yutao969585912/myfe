@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水平垂直居中</title>
+    <style>
+        .parent{
+            width: 500px;
+            height: 500px;
+            background: #ff0000;
+            display: -webkit-flex;
+            /*子元素水平对齐*/
+            -webkit-justify-content: center;
+            /*子元素垂直对齐*/
+            -webkit-align-items: center;
+        }
+        .child{
+            width: 100px;
+            height: 100px;
+            background: #0f0;
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="child"></div>
+</div>
+
+</body>
+</html>

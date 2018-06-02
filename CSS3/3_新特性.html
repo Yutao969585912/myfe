@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新特性</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 40px;
+            background:rgba(255,0,0,0.5);
+            /*opacity: 0.5;*/
+            /*filter:alpha(opacity = 50);*/
+
+            /*text-shadow: 5px 10px 2px #f00;*/
+            /*单行文本溢出...*/
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+
+        }
+        #div2{
+            width: 200px;
+            height: 40px;
+            background: #ccc;
+            word-wrap: break-word;
+            /*-webkit-word-wrap:break-word;*/
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1">dfghjkl dfghjkl dfghjkl dfghjkl dfghjkl dfghjkl dfghjkl dfghjkl</div>
+<div id="div2">dfghjkldfghjkldfghjkldfghjkldfghjkldfghjkl dfghjkl dfghjkl dfghjkl dfghjkl dfghjkl dfghjkl</div>
+
+
+</body>
+</html>

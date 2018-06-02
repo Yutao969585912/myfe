@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <style>
+        li:nth-child(0){
+            background: black;
+        }
+        li:nth-child(2n){/*偶数*/
+            color: red;
+        }
+        /*li:nth-child(2n+1){!*奇数*!
+            color: red;
+        }*/
+        #div1::first-letter{
+            color: red;
+        }
+        #div1::after{
+            content: 'haha';
+        }
+        .div2{
+            width: 200px;
+            height: 200px;
+            /*box-shadow: 3px 6px 5px 2px rgba(0,0,0,0.5);*/
+            box-shadow: 0 0 10px 10px rgba(0,0,0,0.5) inset;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>列表项一</li>
+        <li>列表项二</li>
+        <li>列表项三</li>
+        <li>列表项四</li>
+    </ul>
+    <div id="div1">asda</div>
+    <div class="div2"></div>
+</body>
+</html>

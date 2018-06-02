@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>奥运五环</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .circle{
+            position: relative;
+        }
+        .circle li{
+            width: 200px;
+            height: 200px;
+            border:10px solid red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .circle li::after{/*复制*/
+            content: '';/*content 属性设置文本或图像出现（浮动）在另一个元素中的什么地方*/
+            width: 200px;
+            height: 200px;
+            border:10px solid blue;
+            border-radius: 50%;
+            position: absolute;/*调整位置*/
+            left: -10px;
+            top: -10px;
+        }
+        .circle li.blue{
+            border-color: blue;
+            left: 0;
+            top: 0;
+        }
+        .circle li.blue::after{
+            border-color: blue;
+            z-index: 2;
+            border-bottom-color: transparent;
+        }
+        .circle li.yellow{
+            border-color: yellow;
+            left: 110px;
+            top: 110px;
+        }
+        .circle li.yellow::after{
+            border-color: yellow;
+            z-index: 1;
+        }
+        .circle li.black{
+            border-color: black;
+            left: 230px;
+            top: 0;
+        }
+        .circle li.black::after{
+            border-color: black;
+            z-index: 1;
+            border-left-color: transparent;
+        }
+        .circle li.green{
+            border-color: green;
+            left: 340px;
+            top: 110px;
+        }
+        .circle li.green::after{
+            border-color: green;
+            z-index: 1;
+            border-top-color: transparent;
+            border-right-color: transparent;
+        }
+        .circle li.red{
+            border-color: red;
+            left: 460px;
+            top: 0;
+        }
+        .circle li.red::after{
+            border-color: red;
+            z-index: 1;
+            border-left-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <ul class="circle">
+        <li class="blue"></li>
+        <li class="yellow"></li>
+        <li class="black"></li>
+        <li class="red"></li>
+        <li class="green"></li>
+
+    </ul>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时钟</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #circle{
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid #000000;
+            margin: 50px auto;
+            position: relative;
+        }
+        #circle li{
+            width: 2px;
+            height: 5px;
+            background: black;
+            position: absolute;
+            left: 50%;
+            margin-left: -1px;
+            top: 0;
+            -webkit-transform-origin:1px 100px ;
+        }
+        #circle li:nth-child(5n+1){
+            height: 10px;
+        }
+        #cap{
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #626262;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            -webkit-transform: translate(-50%,-50%);
+        }
+        #hour{
+            width: 5px;
+            height: 55px;
+            background: #666666;
+            position: absolute;
+            left: 97.5px;
+            top: 45px;
+            -webkit-transform-origin: 2.5px 55px;
+        }
+        #min{
+            width: 3px;
+            height: 65px;
+            background: #0000ff;
+            position: absolute;
+            left: 98.5px;
+            top: 35px;
+            -webkit-transform-origin: 1.5px 65px;
+        }
+        #second{
+            width: 2px;
+            height: 80px;
+            background: red;
+            position: absolute;
+            left: 99px;
+            top: 20px;
+            -webkit-transform-origin: 1px 80px;
+        }
+    </style>
+</head>
+<body>
+    <div id="circle">
+        <ul>
+        </ul>
+        <div id="cap"></div>
+        <div id="hour"></div>
+        <div id="min"></div>
+        <div id="second"></div>
+    </div>
+    <script>
+        var aUl = document.getElementsByTagName('ul')[0];
+        var aHour = document.getElementById('hour');
+        var aMin = document.getElementById('min');
+        var aSecond = document.getElementById('second');
+        var aLi = '';
+        for(var i=0; i<60 ;i++){
+            aLi += '<li style="-webkit-transform: rotate('+i*6+'deg)"></li>';
+        }
+        aUl.innerHTML = aLi;
+
+        function run() {
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+            aSecond.style.webkitTransform = 'rotate('+6*s+'deg)';
+            aMin.style.webkitTransform = 'rotate('+(m+s/60)*6+'deg)';
+            aHour.style.webkitTransform = 'rotate('+(h+m/60)*30+'deg)';
+        };
+        run();
+        setInterval(function () {
+            run();
+        },1000)
+
+    </script>
+</body>
+</html>
