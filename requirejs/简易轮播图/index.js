@@ -18,6 +18,13 @@ require(['Carousel'],function(Carousel) {
         buttonType:'square',//按钮类型 round 圆   square 方
         speed:'1000'//自动轮播时间间隔
     });
+   /* var carousel = new Carousel();
+    carousel.init({
+        selector:'#content1',//插入位置
+        imgData:['img/5.jpg','img/2.jpg','img/3.jpg','img/1.jpg','img/4.jpg'],//图片
+        arrowPosition:'center',//箭头位置 center中心   bottom底部
+        buttonType:'round'//按钮类型 round 圆   square 方
+    });*/
 });
 
 

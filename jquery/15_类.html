@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类</title>
+</head>
+<body>
+<script>
+    var obj = {
+        name:'zs',
+        age:10
+    };
+
+
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+        /*        this.eat = function(){
+                    console.log( this.name +" is eating...");
+                }*/
+    }
+
+    Person.prototype.eat = function(){
+        console.log( this.name +" is eating...");
+
+//        this
+    };
+
+    var person1 = new Person('lisi',20);
+    person1.eat();
+
+    var person2 = new Person('wangwu',20);
+
+
+
+
+
+</script>
+
+</body>
+</html>

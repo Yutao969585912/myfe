@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>本地存储 Cookies</title>
+</head>
+<body>
+    <script>
+        function setCookie(key,value,day) {//设置 cookies
+            var str = key + "=" + value + ";"
+            if(day){
+                var date = new Date();
+                date.setDate( date.getDate() + day);
+                str += 'expires = ' + date;
+            }
+            document.cookie = str;
+        }
+        setCookie('name','zhangsan',55);
+        setCookie('num','lisi',2)
+        function getCookie(key) {//获取 Cookies 值
+            var sCookie = document.cookie;//name=zhangsan; num=lisi;
+            var arr = sCookie.split('; ');
+            for(var i=0; i<arr.length; i++){
+                var arr1 = arr[i].split("=");
+                if(arr1[0] == key){
+                    return arr1[1];
+                }
+            }
+        }
+        console.log(getCookie('name'));
+        console.log(getCookie('num'));
+        function removeCookie(key) {//清除 Cookies
+            setCookie(key,'',-1);
+        }
+        removeCookie('num');
+    </script>
+</body>
+</html>
