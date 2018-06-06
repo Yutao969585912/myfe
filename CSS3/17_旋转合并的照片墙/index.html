@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转合并的照片墙</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+        }
+        #container{
+            height: 100%;
+            background: url("images/bg.jpg");
+        }
+        .div{
+            width: 125px;
+            height: 125px;
+            border: 5px solid #FFFFFF;
+            position: absolute;
+            top: -150px;
+            left: -150px;
+            -webkit-transition: all 2s ease 1s;/*设置对象变换时的过渡效果*/
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+
+        </div>
+        <div id="prev"></div>
+        <div id="next"></div>
+    </div>
+    <script>
+        /*加载图片*/
+        var num = 0;//定义记录数，记录已加载图片数量
+        for(var i=0; i<24; i++){//预加载小图
+            var oImg = new Image();
+            oImg.onload = function () {// onload 属性实现预加载，加载完所有再执行
+                num++;
+                if(num == 48){
+                    animationEffects();
+                }
+            }
+            oImg.src = "images/thumbs/"+(i+1)+".jpg";
+        }
+        for(var i=0; i<24; i++){//预加载大图
+            var oImg = new Image();
+            oImg.onload = function () {// onload 属性实现预加载，加载完所有再执行
+                num++;
+                if(num == 48){
+                    animationEffects();
+                }
+            }
+            oImg.src = "images/"+(i+1)+".jpg";
+        }
+
+        /*动画效果*/
+        var oContent = document.getElementById('content');
+        var index = 0;
+        function animationEffects(){
+            /*生成24个框*/
+            for(var i=0; i<4; i++){//4行
+                for(var j=0; j<6; j++){//6列
+                    index++;
+                    var oDiv = document.createElement('div');
+                    oDiv.className = 'div';
+                    oDiv.style.background = 'url(images/thumbs/'+index+'.jpg) no-repeat';
+                    oDiv.row = i;
+                    oDiv.col = j;
+                    oContent.appendChild(oDiv);
+                }
+            }
+            /*获取图片之间的空隙*/
+            var aDiv = oContent.getElementsByTagName('div');
+            var iLeft = (document.body.offsetWidth - aDiv[0].offsetWidth*6)/7;
+            var iTop = (document.body.offsetHeight - aDiv[0].offsetHeight*4)/5;
+            /*循环24个div 设置left  top rotate */
+            for(var i=0; i<aDiv.length; i++){
+                var eDiv = aDiv[i];
+                eDiv.style.webkitTransitionDelay = (23 - i)*100 + 'ms';//TransitionDelay设置对象延迟过渡的时间
+                eDiv.style.left = (eDiv.col + 1)*iLeft + eDiv.col*eDiv.offsetWidth + 'px';
+                eDiv.style.top = (eDiv.row + 1)*iTop + eDiv.row*eDiv.offsetHeight + 'px';
+                //随机旋转 -20~20 角度   Math.random()*40 - 20
+                eDiv.style.transform = 'rotate('+(Math.random()*40 - 20)+'deg)';
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

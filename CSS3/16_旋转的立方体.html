@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转的立方体</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: rgba(0,0,0,0.6);
+            -webkit-perspective: 800px;
+        }
+        #content{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            position: relative;
+            -webkit-transform-style: preserve-3d;
+            -webkit-animation: run 2s linear infinite;/*动画*/
+        }
+        @keyframes run {
+            0%{
+
+            }
+            100%{
+                -webkit-transform: rotateY(-360deg);
+            }
+        }
+        #content div{
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 10px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 55px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #div1{
+            -webkit-transform: rotateX(90deg) translateZ(100px);
+        }
+        #div2{
+            -webkit-transform: translateZ(100px);
+            z-index: 1;
+        }
+        #div3{
+            -webkit-transform: rotateY(90deg) translateZ(100px);
+        }
+        #div4{
+            -webkit-transform: rotateY(180deg) translateZ(100px);
+        }
+        #div5{
+            -webkit-transform: rotateY(270deg) translateZ(100px);
+        }
+        #div6{
+            -webkit-transform: rotateX(270deg)translateZ(100px);
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+        <div id="div3">3</div>
+        <div id="div4">4</div>
+        <div id="div5">5</div>
+        <div id="div6">6</div>
+    </div>
+
+</body>
+</html>

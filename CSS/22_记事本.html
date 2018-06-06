@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>记事本</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .content{
+            position: relative;
+        }
+        .nav{
+            height: 44px;
+        }
+        span{
+            margin-left: 8px;
+        }
+        .nav-text{
+            position: relative;
+        }
+        .nav-text>li a{
+            float: left;
+            padding: 0 8px;
+        }
+        .nav-text li a:hover{
+            background: #37C7D4;
+        }
+        .nav-new{
+            cursor: pointer;
+            display: none;
+        }
+        .nav-new li:hover{
+            background: #37C7D4;
+        }
+        .nav-new1{
+            position: absolute;
+            left: 8px;
+            top: 22px;
+            /*display: none;*/
+        }
+        .nav-new2{
+            position: absolute;
+            left: 76px;
+            top: 22px;
+            /*display: none;*/
+        }
+        .nav-new3{
+            position: absolute;
+            left: 144px;
+            top: 22px;
+            /*display: none;*/
+        }
+        .nav-new4{
+             position: absolute;
+             left: 212px;
+             top: 22px;
+             /*display: none;*/
+         }
+        .nav-new5{
+            position: absolute;
+            left: 280px;
+            top: 22px;
+            /*display: none;*/
+        }
+        #text{
+            font-size: 20px;
+            z-index: -1;
+            position: absolute;
+            left: 0;
+            top: 44px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="nav">
+            <span>无标题-记事本</span>
+            <ul class="nav-text">
+                <li class="lii">
+                    <a href="javascript:;">文件(F)</a>
+                    <ul class="nav-new nav-new1">
+                        <li>新建(N)</li>
+                        <li>打开(O)</li>
+                        <li>保存(S)</li>
+                        <li>另存为(A)</li>
+                        <li>退出(X)</li>
+                    </ul>
+                </li>
+                <li class="lii">
+                    <a href="javascript:;">编辑(E)</a>
+                    <ul class="nav-new nav-new2">
+                        <li>撤销(Z)</li>
+                        <li>剪切(X)</li>
+                        <li>复制(C)</li>
+                        <li>粘贴(V)</li>
+                        <li>删除(L)</li>
+                    </ul>
+                </li>
+                <li class="lii">
+                    <a href="javascript:;">格式(O)</a>
+                    <ul class="nav-new nav-new3">
+                        <li>自动换行(W)</li>
+                        <li>字体(F)</li>
+                    </ul>
+                </li>
+                <li class="lii">
+                    <a href="javascript:;">查看(V)</a>
+                    <ul class="nav-new nav-new4">
+                        <li>状态栏(S)</li>
+                    </ul>
+                </li>
+                <li class="lii">
+                    <a href="javascript:;">帮助(H)</a>
+                    <ul class="nav-new nav-new5">
+                        <li>查看帮助(H)</li>
+                        <li>关于记事本(A)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <textarea id="text" cols="60" rows="15"></textarea>
+    </div>
+    <script>
+        var oa = document.getElementsByTagName('a');
+        for(var i=0; i<oa.length; i++){
+            oa[i].onclick = function () {
+                var oUl = next(this);//选择当前对象 h2 标签的下一个节点 ul 标签
+                //oUl.style.display 只对内联有效，js中点击把 ul 变成内联，返回空
+                console.log(oUl.style.display);
+                if(oUl.style.display == 'none' || oUl.style.display == ''){
+                    oUl.style.display = 'block';
+                }else{
+                    oUl.style.display = 'none';
+                }
+            }
+        }
+        function next(elem) {//封装函数，返回元素下一个节点
+            do{
+                elem = elem.nextSibling;
+            }while (elem && elem.nodeType != 1)
+            //elem 判断元素是否是null
+            return elem;
+        }
+
+    </script>
+</body>
+</html>
