@@ -81,7 +81,7 @@
             /*循环24个div 设置left  top rotate */
             for(var i=0; i<aDiv.length; i++){
                 var eDiv = aDiv[i];
-                eDiv.style.webkitTransitionDelay = (23 - i)*100 + 'ms';//TransitionDelay设置对象延迟过渡的时间
+                eDiv.style.webkitTransitionDelay = (23 - i)*100 + 'ms';//transitionDelay设置对象延迟过渡的时间
                 eDiv.style.left = (eDiv.col + 1)*iLeft + eDiv.col*eDiv.offsetWidth + 'px';
                 eDiv.style.top = (eDiv.row + 1)*iTop + eDiv.row*eDiv.offsetHeight + 'px';
                 //随机旋转 -20~20 角度   Math.random()*40 - 20
