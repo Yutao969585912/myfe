@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>克隆</title>
+</head>
+<body>
+<script>
+
+
+//    var person2 = person1;
+
+/*
+    var person2 = {};
+    for(key in person1){
+        person2[key] = person1[key];
+    }
+
+    console.log(person2);
+
+    person1.name = "lisi";
+
+    console.log(person1.name,person2.name);*/
+
+    function clone(obj){//深克隆
+        var resObj = {};
+        for(key in obj){
+            if(obj[key] instanceof Object){
+                resObj[key] = clone(obj[key]);
+            }else{
+                resObj[key] = obj[key];
+            }
+        }
+        return resObj;
+    }
+    var person1 = {
+        name:"zhangsan",
+        age:20,
+        father:{
+            name:"zz"
+        }
+    };
+    var person2 = clone(person1);
+    person1.father.name = 'zxx';
+    console.log(person2.father.name);
+
+    var str = JSON.stringify(person1);
+    var person2 = JSON.parse(str);
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

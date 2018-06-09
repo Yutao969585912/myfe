@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--html语义化
+
+
+-->
+<form action="">
+    <input type="number" min="3" max="8" step="2" required pattern=""/>
+    <input type="email"/>
+    <input type="color"/>
+    <input type="range"/>
+    <input type="date"/>
+    <input type="submit" value="click"/>
+    <input type="text" placeholder="请输入用户名" autofocus="autofocus"/>
+
+
+    Webpage: <input type="url" list="url_list" name="link" />
+    <datalist id="url_list">
+        <option label="W3School" value="http://www.w3school.com.cn" />
+        <option label="Google" value="http://www.google.com" />
+        <option label="Microsoft" value="http://www.microsoft.com" />
+    </datalist>
+    <input type="submit" />
+</form>
+<div id="div1" class="aa bb cc">dfghj</div>
+<script>
+    /* document.querySelector('#div1');
+     document.querySelector('li');
+     document.querySelectorAll('li');*/
+
+    var oDiv1 = document.querySelector('#div1');
+    console.log(oDiv1.className);
+    console.log(oDiv1.classList);
+    //       oDiv1.className = 'aa bb cc dd'
+    oDiv1.classList.add('dd');
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

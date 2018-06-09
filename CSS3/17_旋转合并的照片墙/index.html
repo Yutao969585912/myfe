@@ -22,7 +22,32 @@
             position: absolute;
             top: -150px;
             left: -150px;
-            -webkit-transition: all 2s ease 1s;/*设置对象变换时的过渡效果*/
+            -webkit-transition: all 1.2s ease 1s;/*设置对象变换时的过渡效果*/
+        }
+        .big-img{
+            display: block;
+            width: 125px;
+            height: 125px;
+            background: #37C7D4;
+            opacity: 0;
+        }
+        #prev,#next{
+            width: 40px;
+            height: 80px;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            display: none;
+        }
+        #prev{
+            left: 0;
+            background: #fff url("images/prev.png") center center no-repeat;
+            border-radius: 0 10px 10px 0;
+        }
+        #next{
+            right: 0;
+            background: #fff url("images/next.png") center center no-repeat;
+            border-radius: 10px 0 0 10px;
         }
     </style>
 </head>
@@ -60,22 +85,28 @@
 
         /*动画效果*/
         var oContent = document.getElementById('content');
+        var oPrev = document.getElementById('prev');
+        var oNext = document.getElementById('next');
         var index = 0;
         function animationEffects(){
-            /*生成24个框*/
+            /*初始化生成24个 div */
             for(var i=0; i<4; i++){//4行
                 for(var j=0; j<6; j++){//6列
                     index++;
                     var oDiv = document.createElement('div');
+                    oDiv.innerHTML = '<span class="big-img"></span>';
                     oDiv.className = 'div';
                     oDiv.style.background = 'url(images/thumbs/'+index+'.jpg) no-repeat';
-                    oDiv.row = i;
-                    oDiv.col = j;
+                    oDiv.row = i;//行
+                    oDiv.col = j;//列
+                    oDiv.index = index;//添加索引
+                    oDiv.onclick = fn;//给所有 div 绑定点击事件 fn
                     oContent.appendChild(oDiv);
                 }
             }
             /*获取图片之间的空隙*/
             var aDiv = oContent.getElementsByTagName('div');
+            var aSpan = oContent.getElementsByTagName('span');
             var iLeft = (document.body.offsetWidth - aDiv[0].offsetWidth*6)/7;
             var iTop = (document.body.offsetHeight - aDiv[0].offsetHeight*4)/5;
             /*循环24个div 设置left  top rotate */
@@ -86,6 +117,62 @@
                 eDiv.style.top = (eDiv.row + 1)*iTop + eDiv.row*eDiv.offsetHeight + 'px';
                 //随机旋转 -20~20 角度   Math.random()*40 - 20
                 eDiv.style.transform = 'rotate('+(Math.random()*40 - 20)+'deg)';
+            }
+            /*获取合并之后的空隙*/
+            var spaceX = (document.body.offsetWidth - 127*6)/2;
+            var spaceY = (document.body.offsetHeight - 127*4)/2;
+            var flag = true;//teue 打开  flase 关闭
+            var now = 0;//记录当前图片位置
+            function fn() {//点击事件内容
+                for(var i=0; i<aDiv.length; i++){
+                    var eDiv = aDiv[i];
+                    var eSpan = aSpan[i];
+                    if(flag){//合并
+                        eDiv.style.webkitTransitionDelay = '0ms';
+                        eDiv.style.border = "1px solid #FFFFFF";
+                        eDiv.style.left = spaceX + eDiv.col*127 + 'px';
+                        eDiv.style.top = spaceY + eDiv.row*127 + 'px';
+                        eDiv.style.webkitTransform = 'rotate(0deg)';
+                        eSpan.style.opacity = '1';
+                        var imgX = -eDiv.col*125;
+                        var imgY = -eDiv.row*125;
+                        eSpan.style.background = 'url(images/'+this.index+'.jpg) '+imgX+'px '+imgY+'px no-repeat';
+                        oPrev.style.display = 'block';
+                        oNext.style.display = 'block';
+                        now = this.index;
+                    }else{//打开
+                        eSpan.style.webkitTransitionDelay = '0ms';
+                        eDiv.style.border = "5px solid #FFFFFF";
+                        eDiv.style.left = (eDiv.col + 1)*iLeft + eDiv.col*eDiv.offsetWidth + 'px';
+                        eDiv.style.top = (eDiv.row + 1)*iTop + eDiv.row*eDiv.offsetHeight + 'px';
+                        //随机旋转 -20~20 角度   Math.random()*40 - 20
+                        eDiv.style.transform = 'rotate('+(Math.random()*40 - 20)+'deg)';
+                        eSpan.style.opacity = '0';
+                        oPrev.style.display = 'none';
+                        oNext.style.display = 'none';
+                    }
+                }
+                flag = !flag;
+            }
+            oPrev.onclick = function(){
+                now--;
+                if(now ==0){
+                    now = 24;
+                }
+                for(var i=0; i<aSpan.length; i++){
+                    aSpan[i].style.webkitTransitionDelay = Math.random()*500 + 'ms';
+                    aSpan[i].style.backgroundImage = "url(images/"+now+".jpg) ";
+                }
+            }
+            oNext.onclick = function(){
+                now++;
+                if(now == 25){
+                    now = 1;
+                }
+                for(var i=0; i<aSpan.length; i++){
+                    aSpan[i].style.webkitTransitionDelay = Math.random()*500 + 'ms';
+                    aSpan[i].style.backgroundImage = "url(images/"+now+".jpg) ";
+                }
             }
         }
     </script>

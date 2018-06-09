@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+</head>
+<body>
+    <!--json  javascript object notation-->
+
+    <script>
+        var person = {
+            "name":"zhangsan",
+            "age":"10",
+            "bobby":["sing","dance"],
+            "father":{
+                "name":"zz",
+                "age":"50"
+            }
+        }
+
+        console.log(person.name);
+
+        var per2 = '{"name":"lisi","age":"10"}';
+//        per2.name
+        console.log(per2);
+        var person2 = JSON.parse(per2);//字符串=>json对象
+
+        console.log(person2);
+//        person2.name
+
+        console.log(JSON.stringify(person)); //json对象=>字符串
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>历史记录</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #btns{
+            position: fixed;
+            top:0;
+            left:30px;
+        }
+        #div1{
+            height: 500px;
+            background: #ff0000;
+        }
+        #div2{
+            height: 500px;
+            background: #00ff00;
+        }
+        #div3{
+            height: 700px;
+            background: #0000ff;
+        }
+    </style>
+</head>
+<body>
+<div id="btns">
+    <a href="#div1">div1</a>
+    <a href="#div2">div2</a>
+    <a href="#div3">div3</a>
+</div>
+<div id="div1">
+
+</div>
+<div id="div2">
+
+</div>
+<div id="div3">
+
+</div>
+<script src="../jquery/jquery-1.12.4.js"></script>
+<script>
+    $('a').on('click',function(){
+        var scrollTop = $( $(this).attr('href')).offset().top;
+
+        $('html,body').animate({
+            scrollTop:scrollTop
+        });
+        history.pushState(scrollTop,'');
+        return false;
+    });
+
+    window.onpopstate = function(e){
+        var scrollTop = e.state;
+        $('html,body').animate({
+            scrollTop:scrollTop
+        });
+    }
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

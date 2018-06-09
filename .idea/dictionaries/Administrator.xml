@@ -1,7 +1,9 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Administrator">
     <words>
+      <w>onhashchange</w>
       <w>onload</w>
+      <w>onpopstate</w>
     </words>
   </dictionary>
 </component>
