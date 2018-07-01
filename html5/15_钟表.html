@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>钟表</title>
+</head>
+<body>
+    <canvas id="canvas1" width="800" height="600"></canvas>
+    <script>
+        var oCanvas = document.getElementById('canvas1');
+        var oCtx = oCanvas.getContext('2d');
+        /*画圆+刻度*/
+        /*弧度 = 角度*Math.PI/180 */
+        oCtx.beginPath();
+        for(var i=0; i<60; i++){
+            oCtx.moveTo(300,300);
+            oCtx.arc(300,300,100,i*6*Math.PI/180,(i+1)*6*Math.PI/180,false);
+        }
+        oCtx.stroke();
+        //遮盖一个圆
+        oCtx.beginPath();
+        oCtx.arc(300,300,95,0*Math.PI,2*Math.PI);
+        oCtx.fillStyle = '#fff';
+        oCtx.fill();
+        /*时针刻度*/
+        oCtx.beginPath();
+        for(var i=0; i<12; i++){
+            oCtx.moveTo(300,300);
+            oCtx.arc(300,300,95,i*30*Math.PI/180,i*30*Math.PI/180,false);
+        }
+        oCtx.stroke();
+        //遮盖第二个圆
+        oCtx.beginPath();
+        oCtx.arc(300,300,90,0*Math.PI,2*Math.PI);
+        oCtx.fillStyle = '#fff';
+        oCtx.fill();
+
+        run();
+
+        setInterval(function () {
+            run();
+        },1000);
+        function run() {
+            oCtx.clearRect(237,237,126,126);//清除此区域内的内容
+            /*获取当前时间*/
+            var oDate = new Date;
+            var oSeconds = oDate.getSeconds();
+            var oMin = oDate.getMinutes() + oSeconds/60;
+            var oHours = oDate.getHours() + oMin/60;
+
+            /*画秒针*/
+            oCtx.beginPath();
+            oCtx.moveTo(300,300);
+            oCtx.arc(300,300,60,(oSeconds-15)*6*Math.PI/180,(oSeconds-15)*6*Math.PI/180,false);
+            oCtx.lineWidth = 2;
+            oCtx.strokeStyle = '#F00';//设置
+            oCtx.stroke();
+
+            /*画分针*/
+            oCtx.beginPath();
+            oCtx.moveTo(300,300);
+            oCtx.arc(300,300,50,(oMin-15)*6*Math.PI/180,(oMin-15)*6*Math.PI/180,false);
+            oCtx.lineWidth = 3;
+            oCtx.strokeStyle = '#2a19ff';
+            oCtx.stroke();
+
+            /*画时针*/
+            oCtx.beginPath();
+            oCtx.moveTo(300,300);
+            oCtx.arc(300,300,40,(oMin-3)*30*Math.PI/180,(oMin-3)*30*Math.PI/180,false);
+            oCtx.lineWidth = 4;
+            oCtx.strokeStyle = '#000';
+            oCtx.stroke();
+        }
+    </script>
+</body>
+</html>

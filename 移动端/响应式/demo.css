@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h3{
+    width: 960px;
+    height: 100px;
+    margin: 50px auto 0;
+    background: #CCCCCC;
+    line-height: 100px;
+    text-align: center;
+}
+.img960,.img480{
+    display: none;
+}
+.img100{
+    display: block;
+}
+.img-box{
+    width: 960px;
+    margin: 50px auto 0;
+}
+.img-box img{
+    width: 100%;
+}
+#content{
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#left{
+    width: 630px;
+    height: 300px;
+    background: #FF0036;
+    float: left;
+    display: table;/*多行文字垂直居中，给父元素加 display：table；*/
+}
+#right{
+    width: 300px;
+    height: 300px;
+    background: #00A5FF;
+    float: right;
+}
+#left p{
+    /*多行文字水平垂直居中*/
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+@media screen and (max-width: 960px){
+    h3{
+        width: 100%;
+    }
+    .img-box{
+        width: 100%;
+    }
+    .img100,.img480{
+        display: none;
+    }
+    .img960{
+        display: block;
+    }
+    #content{
+        width: 100%;
+    }
+    #left{
+        width: 66%;
+    }
+    #right{
+        width: 31%;
+    }
+}
+@media screen and (max-width: 480px){
+    .img100,.img960{
+        display: none;
+    }
+    .img480{
+        display: block;
+    }
+    #left{
+        width: 100%;
+        float: none;
+    }
+    #right{
+        width: 100%;
+        float: none;
+    }
+}

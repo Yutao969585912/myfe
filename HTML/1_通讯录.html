@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通讯录</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        #container{
+            width: 230px;
+            height: 400px;
+            background: #aabbcc;
+            margin: 50px auto;
+        }
+        #div1,#div2{
+            margin:10px;
+        }
+        #content{
+            width: 230px;
+            font-size: 20px;
+            position: relative;
+        }
+        #refresh{
+            position: absolute;
+            top: 0px;
+            left: 35px;
+            cursor: pointer;
+        }
+        #increase{
+            position: absolute;
+            top: 0px;
+            right: 35px;
+            cursor: pointer;
+        }
+        #text{
+            width: 210px;
+            height: 295px;
+            background: #FFFFFF;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="div1">
+            <label for="username">姓名：</label><input id="username" type="text" value="">
+        </div>
+        <div id="div2">
+            <label for="num">电话：</label><input id="num" type="text" value="">
+        </div>
+        <div id="content">
+            <button id="refresh">刷新纪录</button>
+            <button id="increase">增加纪录</button>
+        </div>
+        <div id="text">
+        </div>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        var oName = document.getElementById('username');
+        var oNum = document.getElementById('num');
+        var oRefresh = document.getElementById('refresh');
+        var oIncrease = document.getElementById('increase');
+        var newName = '';
+        var newNum = '';
+        oIncrease.onclick = function(){
+            newName = oName.value;
+            newNum = oNum.value;
+        }
+        oRefresh.onclick = function(){
+            var newDiv = '<div>' +
+                        '<a href="javascript:;">&nbsp;'+newName+'&nbsp;&nbsp;&nbsp;</a>' +
+                        '<a href="javascript:;">'+newNum+'</a>' +
+                      '</div>';
+            $('#text').append(newDiv);
+        }
+    </script>
+</body>
+</html>
