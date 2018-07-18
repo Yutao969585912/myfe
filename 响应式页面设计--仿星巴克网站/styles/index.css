@@ -114,6 +114,7 @@ body{
     transform: scale(1, 1) translate(-50%);
     width: 6px;
 }
+/*轮播图*/
 .tag_ad{
     position: absolute;
     top: 10px;
@@ -129,7 +130,6 @@ body{
     z-index: 100;
 }
 .content{
-    height: 4000px;
     position: absolute;
     top: 0;
     right: 0;
@@ -138,30 +138,136 @@ body{
     position: relative;
 }
 .menu .menu-slide{
-    float: left;
+    display: inline-block;
     display: none;
+}
+.menu-slide img{
+    vertical-align: middle;
+    width: 100%;
+    border: 0;
 }
 .menu .menu-cloned{
     display: block;
 }
-.menu .menu-slide img {
-    border: 0;
-}
 .menu .menu-next{
-    background-size: contain;/*把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域*/
     border: 0;
-    background: url("../images/right.svg") transparent no-repeat center center;
+    background: url("../images/arrow.svg") transparent no-repeat center center;
+    background-size: contain;/*把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域*/
     content: '';
     width: 48px;
     height: 48px;
     outline: none;
     padding: 0;
     position: absolute;
-    right: 24px;
+    right: 28px;
     top: 50%;
     margin-top: -25px;
     z-index: 100;
     cursor: pointer;
+}
+/*右箭头动画*/
+.menu .menu-next:hover{
+    right: 22px;
+    -webkit-transition: all 0.2s ease;
+}
+/*小图*/
+.promotion{
+    background: #f7f7f7;
+    height: 100%;
+    padding: 12px 0 0 0;
+}
+.wrapper{
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.grid{
+    font-size: 0;
+}
+.grid > * {
+    padding: 12px;
+    position: relative;
+}
+.promotion a img{
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+    max-width: 100%;
+    border: 0;
+}
+/*文字*/
+.program-wrapper{
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 768px;
+    width: 100%;
+}
+.program-grid{
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.program .program-wrapper .program-grid > * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+}
+.program .program-wrapper .program-grid div:first-child{
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+.program .program-wrapper .program-grid h2{
+    clear: both;
+    line-height: 140%;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #000000;
+    font-family: "Gotham", Helvetica, Arial, PingFangSC-Regular, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    margin: 0 0 24px;
+}
+.program .program-wrapper .program-grid p{
+    word-wrap: break-word;
+    word-break: normal;
+    margin: 0 0 24px;
+}
+.program .program-wrapper .program-grid .light{
+    color: rgba(0, 0, 0, 0.56);
+    letter-spacing: 0.4px;
+}
+.program .program-wrapper .program-grid div a{
+    margin-right: 6px;
+    vertical-align: middle;
+    background: none;
+    border: 1px solid #00a862;
+    border-radius: 48px;
+    box-sizing: border-box;
+    display: inline-block;
+    font-weight: 500;
+    outline: none;
+    overflow: hidden;
+    padding: 6px 18px;
+    position: relative;
+    color: #00a862;
+    transition-duration: 0.1s;
+    transition-property: background, border-color, color;
+}
+.program .program-wrapper .program-grid .light .grid-more{
+    color: #c2a661;
+    border-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+}
+.program .program-wrapper .program-grid .image img{
+    height: 72px;
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: -36px;
+    right: 0;
+    transform: translate3d(0, 0, 0);
 }
 @media (min-width: 1025px) {
     .nav{
@@ -176,9 +282,36 @@ body{
         width: 70%;
     }
     .menu{
-        height: 496px;
-    }
-    .menu-slide img{
         width: 100%;
     }
+    .wrapper{
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .grid{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .grid > * {
+        width: 33.3333333333%;
+        box-sizing: border-box;
+        display: inline-block;
+        margin: 0;
+    }
+    .program-wrapper{
+        padding-left: 24px;
+        padding-right: 24px;
+    }
 }
+@media (min-width: 641px){
+    .menu-mobile {
+        display: none !important;
+    }
+}
+@media (max-width: 640px) {
+    .menu-block{
+        display: none !important;
+    }
+}
+

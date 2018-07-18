@@ -1,0 +1,42 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.header{
+  width: 100%;
+  height: 50px;
+  margin: auto;
+  text-align: center;
+  line-height: 50px;
+}
+@mixin aa(){
+  border: 2px solid #C4C4C4;
+  box-shadow: 0 0 3px 4px rgba(0,0,0,0.2);
+}
+.div1{
+  width: 60px;
+  height: 50px;
+  @include aa();
+}
+@mixin bb($width,$color,$dir){
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  border-style: solid;
+  border-width: $width;
+  @if($dir == left){
+    border-color: transparent $color transparent transparent;
+  }@else if($dir == right){
+    border-color: transparent transparent transparent $color;
+  }@else if($dir == top){
+    border-color: transparent transparent $color transparent;
+  }@else if($dir == bottom){
+    border-color: $color transparent transparent transparent;
+  }@else {
+  }
+  width: 0;
+  height: 0;
+}
+.bb{
+  @include bb(8px,#000,bottom)
+}
