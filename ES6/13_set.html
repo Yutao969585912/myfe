@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>set</title>
+</head>
+<body>
+    <script>
+
+        //数组去重
+       /*  let a = [1,2,3,6,7,3,5,6,1,2];
+        function aa() {
+            var obj = {};
+            var result = [];
+            for (let i = 0; i< a.length; i++) {
+              var key = a[i];
+              if (!(key in obj)) {
+                  obj[key] = 1;
+                  result.push(key);
+              }
+            }
+            return result;
+        }
+        console.log(aa()); */
+        
+        
+        let arr1 = [1,2,3,6,7,3,5,6,1,2];
+
+        let arr2 = new Set(arr1);//数组去重（变成类数组）
+
+        //let result = [...arr2]; //转成数组
+
+        let result = Array.from(arr2);//转成数组
+
+        console.log(reult);
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>   
+    
+</body>
+</html>

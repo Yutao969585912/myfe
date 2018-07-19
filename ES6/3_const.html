@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>const</title>
+</head>
+<body>
+    <script>
+        /*
+        const：
+
+        定义基本数据类型   不能修改
+
+        定义引用数据类型   指向的地址不能修改
+        
+        如果不修改对象 Object.freeze(obj) 冻结
+
+        */
+       /*  const a = 10;
+        a = 20;
+        console.log(a); */
+
+        const obj = {
+            name: 'lisi',
+            num: 123
+        }
+
+        /* obj.name = 'zhangsan';
+        console.log(obj);*/
+
+        Object.freeze(obj);
+        obj.name = 'zhangsan';
+
+        console.log(obj);
+    
+    </script>
+    
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>let</title>
 </head>
 <body>
     <script>
@@ -42,14 +42,14 @@
         console.log(a); */
         // 
 
-         //let 暂时性死区 （在当前作用域中不允许同名的变量进来 ）
-       /*  var a = 10;
+         //3.let 暂时性死区 （在当前作用域中不允许同名的变量进来 ）
+        /* var a = 10;
 
         function aa(){
             console.log(a);
             var a = 20;
         }
-        aa(); */
+        aa();
 
         let b = 10;
 
@@ -57,11 +57,20 @@
             console.log(b);
             let b = 20;
         }
-        bb();
+        bb(); */
 
+        //4.块级作用域
+        /* function aa(){
+            var i = 6;//局部变量
+        }
+        aa();
+        console.log(i); */
 
-
-
+        /* for(var i = 0; i<5; i++){
+            console.log(i);
+        }
+        console.log(i);
+ */
 
     </script>
 </body>

@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>解构</title>
+</head>
+<body>
+    <script>
+        //解构数组
+       /*  let arr = [1,2,3];
+        //console.log(a);
+        let [a,b,c] = arr;
+        //let [a,b,c] = [1,2,3];
+        console.log(a,b,c); */
+
+        //解构对象
+       /*  let obj = {
+            name:'lisi',
+            number:123,
+        }
+        //let{name,number} = obj;
+        //console.log(name,number);
+    
+        //解构对象改变量名
+        let{name:aa,number:bb} = obj;
+        console.log(aa,bb); */
+    
+        /*
+        解构应用:
+            1.函数传参
+            2.函数返回值
+            3.变量互换
+
+        */
+        /*变量互换*/
+        let a = 3;
+        let b = 5;
+        //1.定义临时变量
+       /*  let temp;
+        temp = a;
+        a = b;
+        b =temp; */
+
+        //2.加法互换
+        /* a = a + b;
+        b = a - b;
+        a = a - b; */
+
+        //3.减法互换
+       /*  a = a - b;
+        b = a + b;
+        a = b - a; */
+
+        //4.乘法互换
+       /*  a = a * b;
+        b = a / b;
+        a = a / b; */
+
+        //5.除法互换
+        /* a = a / b;
+        b = a * b;
+        a = b / a; */
+
+        //6.数组互换
+        /* a = [a,b];
+        b = a[0];
+        a = a[1]; */
+
+        //7.对象互换
+       /*  b = {
+            a:b,
+            b:a
+        }
+        a = b.a;
+        b = b.b; */
+
+        //8.ES6解构赋值
+        /* [a,b] = [b,a];*/
+
+        //9.数组互换简写
+        /*b = [a,a = b][0];*/
+
+        console.log(a,b); 
+    </script>
+    
+</body>
+</html>
