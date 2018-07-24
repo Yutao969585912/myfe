@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2 v-bind:id="msg">
+            abc
+        </h2>
+        <h2 id="msg">
+            abc
+        </h2>
+        <div>
+            {{msg}}
+        </div>
+        <!-- class特殊 -->
+        <p :class="{aa:isA,bb:isB}" v-on:click = "change()">sgfdgfd</p>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'aaa',
+                isA:true,
+                isB:false
+            },
+            methods: {
+                change(){
+                    this.isA = !this.isA;
+                    this.isB = !this.isB;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

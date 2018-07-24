@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <ul>
+            <li v-for="val in arr">{{val}}</li>
+        </ul>
+        <h2 v-for="(val,key) in obj">{{key}} : {{val}}</h2>
+        <div v-text="msg"></div>
+        <div v-html="msg"></div> -->
+        
+        <button v-on:click = "show(1)">click</button>
+        <div>{{num}}</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm1 = new Vue({
+            el:'#app',
+            data:{
+                arr:[1,2,3,4,5,6],
+                obj:{
+                    name:'zz',
+                    age:20,
+                    school:'heilongjiang'
+                },
+                msg:'aaa',
+                num:0
+            },
+            methods:{
+                show(n){
+                    console.log(event);
+                    this.num += n;
+                }
+            }
+        })
+        
+    </script>
+    
+
+
+    
+</body>
+</html>
