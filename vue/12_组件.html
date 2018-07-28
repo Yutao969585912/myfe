@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件</title>
+</head>
+
+<body>
+    <div id="app">
+        <demo title="1111"></demo>
+        <demo title="2222"></demo>
+    </div>
+    <script src="vue.js"></script>
+    <script type="text/x-template" id="temp">
+        <div>
+            <h2>标题</h2>
+            <p>内容</p>
+
+        </div>
+
+
+    </script>
+    <script>
+        Vue.component('zujian', {
+            template: '<div><h2>标题</h2></div>'
+        })
+        let vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                demo: {
+                    template: '#temp',
+                    props: ['title'] //父组件到子组件传值用props
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

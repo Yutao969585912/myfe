@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>todolist_Vue</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 440px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            height: 50px;
+            line-height: 50px;
+            background: #cccccc;
+            padding: 0 10px;
+            margin-top: 10px;
+        }
+
+        .price,
+        .close {
+            float: right;
+        }
+
+        .close {
+            margin-left: 10px;
+            color: red;
+        }
+
+        .selected {
+            background: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>todolist</h1>
+        <hr>
+        <div>
+            <label for="proName">名称</label>
+            <input type="text" id="proName" placeholder="请输入产品名" v-model="name">
+            <label for="proPrice">价格</label>
+            <input type="text" id="proPrice" placeholder="请输入产品价格" v-model="price">
+            <button class="add" @click="add()">添加</button>
+        </div>
+        <div>
+            <input class="search-val" type="text" v-model="searchVal" placeholder="请输入搜索内容">
+            <button class="search" @click="search()">搜索</button>
+        </div>
+        <ul>
+            <li v-for="(pro,index) in proList" @click="change(pro,index)" :class="{selected:pro.isSelect}">
+                <input type="checkbox" v-model="checke" :value="index">
+                <span>{{pro.name}}</span>
+                <span class="close">[X]</span>
+                <span class="price">{{pro.price}}</span>
+            </li>
+
+        </ul>
+        <div>
+            <button class="del" @click="del()">删除选中</button>
+            总价
+            <span class="total_price">{{sum()}}</span>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el: '#container',
+            data: {
+                proList: [
+                    {
+                        name: '裤子',
+                        price: 11,
+                        isSelect:false
+                    },
+                    {
+                        name: '衣服',
+                        price: 22,
+                        isSelect:false
+                    },
+                    {
+                        name: '电脑',
+                        price: 3333,
+                        isSelect:false
+                    },
+                    {
+                        name: 'iphoneX',
+                        price: 6666,
+                        isSelect:false
+                    }
+                ],
+                name:'',
+                price:'',
+                checke:[],
+                searchVal:''
+            },
+            methods: {
+                change(pro,idx){
+                    if(pro.isSelect){//当前粉色  需要从数组移除
+                        this.checke.splice(this.checke.indexOf(idx),1);
+                    }else{//当前灰色 需要push到数组
+                        this.checke.push(idx);
+                    };
+                    pro.isSelect = !pro.isSelect;
+                },
+                add(){
+                    this.proList.push({
+                        name: this.name,
+                        price: this.price,
+                        isSelect:false
+                    });
+                    //添加后清空输入框内容
+                    this.name = '';
+                    this.price = '';
+                },
+                del(){
+                    //过滤返回没有被选中的商品，ES6语法
+                    let newPro = this.proList.filter(function(pro){
+                        return (pro.isSelect != true);
+                    });
+                    //将没有被勾选的赋值给prolist商品列表，更新页面
+                    this.proList = newPro;
+                    //清空选中checkbox
+                    this.checke = [];
+                },
+                sum(){
+                    //计算选中商品总价
+                    let totalPrice = 0;
+                    this.proList.forEach(function(pro,idx){
+                        if(pro.isSelect){
+                            totalPrice += pro.price*1;
+                        }
+                    });
+                    return totalPrice;
+                },
+                search(){
+                    //过滤返回被选中的商品列表，ES6语法
+                    let newPro = this.proList.filter((pro) =>{
+                        return (pro.name.includes(this.searchVal));
+                    });
+                    this.proList = newPro;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
