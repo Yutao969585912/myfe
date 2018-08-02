@@ -35,7 +35,33 @@ Vue总结
     v-show 条件判断指令,若不满足条件则生成相应元素但是隐藏该元素
 
 
+<template>
+    <div>
 
+    </div>
+</template>
+
+<script>
+    import Vue from 'vue'
+    import  axios from 'axios'
+    export default {
+        name: 'MovieList',
+        data: {
+            return{
+                movieList:[]
+            }
+        },
+        created () {
+            axios.get(Vue.config.Url+'http://api.douban.com/v2/movie/top250?start=0&count=10').then(res =>{
+                this.movieList = res.data.subjects;
+
+                console.log(this.movieList );
+            }).catch(res => {
+
+            });
+        }
+    }
+</script>
 
 
 

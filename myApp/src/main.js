@@ -4,8 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import '@/assets/common.css'
-import '@/assets/rem'
+import '@/assets/rem.js'
 
+Vue.config.Url = 'https://bird.ioliu.cn/v1?url=';
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

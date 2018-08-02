@@ -4,19 +4,61 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
-        div{
+        #div1,#div2,#div3{
             width: 100px;
-            height: 50px;
-            background: red;
-            border: 1px solid#000000;
-            display: inline-block;
+            height: 80px;
+            border:1px solid #000;
+            background: #ff0000;
+            float: left;
         }
+        #div0{
+            background: #ffff00;
+            /*height: 80px;*/
+            /*overflow: hidden;*/
+        }
+        h3{
+            background: #00ff00;
+        }
+        #div1{
+            position: relative;
 
+        }
+        .icon{
+            position: absolute;
+            right: -16px;
+            top: -15px;
+            background: pink;
+        }
+        .clear{
+            clear: both;
+        }
+        .clearfix::after{
+            content: '';
+            clear: both;
+            display: block;
+
+        }
     </style>
 </head>
 <body>
-    <div id="div1">1</div>
-    <div id="div2">2</div>
-    <div id="div3">3</div>
+    <!--float 脱离文档流 空间释放
+    坍陷 子元素浮动 父元素没有高度
+    1、给父元素高度
+    2、父元素overflow:hidden
+    3、clear:both
+
+    -->
+    <div id="div0" class="clearfix">
+        <div id="div1">1
+            <span class="icon">haha</span>
+        </div>
+        <div id="div2">2</div>
+        <div id="div3">3</div>
+        <!--<div class="clear"></div>-->
+
+    </div>
+    <h3>fghjkl';liugyftgghjlk;';lkjhgf</h3>
+
+
 </body>
 </html>
