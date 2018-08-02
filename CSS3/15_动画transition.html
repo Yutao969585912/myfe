@@ -3,8 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>动画transition</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            /*-webkit-transition: width 2s ease 1s;*/
+            animation: run 2s ease 1s 2 forwards;
+        }
+
+        @keyframes run {
+            50%{
+                width:500px;
+            }
+            80%{
+                width:800px;
+            }
+            100%{
+                width:1000px;
+            }
+        }
+        /*#div1:hover{*/
+        /*width:500px;*/
+        /*}*/
+
+
+
+    </style>
 </head>
 <body>
+<div id="div1">
+
+</div>
 
 </body>
 </html>

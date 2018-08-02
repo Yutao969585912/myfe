@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: #0000ff;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    111
+    <div id="div2">
+        222
+    </div>
+</div>
+<script>
+    var oDiv = document.getElementById('div1');
+    var oDiv2 = document.getElementById('div2');
+   /* oDiv.onclick = function(e){
+       /!* e = e || window.event;
+        console.log(e.target || e.srcElement);
+        console.log(this);
+        console.log(e.currentTarget) //currentTarget = this*!/
+        console.log(111);
+
+    };
+   /!* oDiv2.onclick = function(){
+        console.log('div2');
+    }*!/
+
+    oDiv.onclick = function(){
+        console.log('222');
+    }*/
+
+    oDiv.addEventListener('click',function(){
+        console.log(111);
+    },false);
+    oDiv.addEventListener('click',function(){
+        console.log(222);
+    },false);
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>

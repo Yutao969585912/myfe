@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+   /* var a = 'aaa';
+    var b = a;
+    b = 'bbbb';
+    console.log(a);
+
+    var arr = [1,2,3];
+    var arr1 = arr;
+    arr1[0] = 0;
+    console.log(arr);*/
+
+
+    person1 = {
+        name:'zs',
+        age:20,
+        father:{
+            name:'zz'
+        }
+    };
+
+    function clone(obj){  //浅克隆
+        var obj1 = {};
+        for(key in obj){
+            if(obj[key] instanceof Object){
+                obj1[key] = clone(obj[key]);
+            }else{
+                obj1[key] = obj[key];
+            }
+        }
+        return obj1;
+    }
+
+    var person2 = clone(person1);
+
+    person1.father.name = 'lisi';
+
+    console.log(person2.father.name);
+
+
+
+
+</script>
+
+</body>
+</html>

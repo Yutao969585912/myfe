@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>01</li>
+    <li>02</li>
+    <li>04</li>
+    <li>05</li>
+</ul>
+<ul>
+    <li>01</li>
+    <li>02</li>
+    <li class="aa">03</li>
+    <li>04</li>
+    <li>05</li>
+</ul>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    /*  $('li').each(function(index,ele){
+
+     });
+     $.each()*/
+
+    var obj1 = {
+        name:'zs',
+        age:20
+    };
+    var obj2 = {
+        name:'lisi',
+        school:'weichuang'
+    };
+
+    //        {name: "lisi", age: 20, school: "weichuang"}
+
+    console.log(  $.extend(obj1,obj2)   );
+    console.log(   $('.aa').index()  );
+
+//$('li')
+    console.log(  $('.aa').index('li')  );
+
+</script>
+
+</body>
+</html>

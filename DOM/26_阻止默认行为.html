@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<a href="http://www.baidu.com" id="btn">baidu</a>
+
+<script>
+    var oBtn = document.getElementById('btn');
+    oBtn.onclick = function(e){
+        console.log(this.innerHTML);
+
+        return false;
+        e.preventDefault();
+        e.returnValue = false;
+
+    }
+
+</script>
+
+</body>
+</html>

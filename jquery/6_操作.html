@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
 </head>
 <body>
+
+<div id="div1">
+    aaaa
+</div>
+<p>fghjkl</p>
+<h1>hhhh</h1>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    //        $("#div1").append('<p>sdfyguhjkl;</p>')
+    var ele = document.createElement('span');
+    ele.innerHTML = 'hahha';
+    var $ele = $('p').clone();
+    //        $('#div1').append($ele).css('background','red').height(500);
+
+
+    $('h1').appendTo('#div1').css();
+
+    $('#div1').append($('h1')).css();
+
+
+
+
+</script>
 
 </body>
 </html>

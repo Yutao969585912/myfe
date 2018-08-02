@@ -2,22 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>事件</title>
-    <script src="jquery-1.12.4.js"></script>
+    <title></title>
     <style>
         #div1{
             width: 200px;
             height: 200px;
-            background: red;
+            background: #ff0000;
         }
     </style>
+
 </head>
 <body>
-    <div id="div1"></div>
-    <script>
-        $('#div1').on('click',function () {
-            alert('hahha');
-        });
-    </script>
+
+<div id="div1">
+
+</div>
+<button id="btn">click</button>
+<ul>
+    <li>111</li>
+    <li>222</li>
+</ul>
+<script src="jquery-1.12.4.js"></script>
+
+<script>
+
+    var fn = function(){
+        alert('haha');
+    };
+
+    $('#div1').on('click',fn);
+
+    $('#btn').on('click',function(){
+        $('#div1').off('click',fn)
+    });
+
+
+
+    /*  $('ul').on('click','li',function(){
+         console.log(  $(this).html()   );/!*this->li*!/
+      });
+
+      $('#btn').on('click',function(){
+          $('ul').append('<li>'+Math.random()+'</li>');
+      })*/
+
+
+
+
+
+
+
+</script>
+
 </body>
 </html>

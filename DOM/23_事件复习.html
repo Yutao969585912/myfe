@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: #0000ff;
+        }
+    </style>
+</head>
+<body>
+    事件
+    事件源 事件处理函数  事件
+    <div id="div1">
+        111
+        <div id="div2">
+            222
+        </div>
+    </div>
+    <script>
+        var oDiv = document.getElementById('div1');
+        var oDiv2 = document.getElementById('div2');
+        oDiv.onclick = function(e){
+//            e = e || window.event; //事件
+//            e.clientX              //鼠标距离浏览器左边
+              e.target || e.srcElement; //事件源
+              this              //谁的事件this是谁
+              e.currentTarget   //=this
+              e.stopPropagation(); //阻止冒泡标准
+              e.cancelBubble = true;//阻止冒泡ie
+
+              e.preventDefault();   //阻止默认行为标准
+              e.returnValue = false;//阻止默认行为ie
+
+        };
+        oDiv2.onclick = function(){
+            console.log('div2');
+        }
+
+       /* document.onkeydown = function(e){
+            if(e.keyCode == 13){
+                console.log('回车');
+            }
+        }*/
+    </script>
+
+
+
+</body>
+</html>

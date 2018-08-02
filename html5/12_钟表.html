@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <canvas id="canvas1" width="800" height="500"></canvas>
+
+    <script>
+
+        var oCanvas = document.querySelector('#canvas1');
+
+        var oCtx = oCanvas.getContext('2d');
+        /*画圆+刻度*/
+//        弧度 = 角度*Math.PI/180
+        oCtx.beginPath();
+        for(var i=0; i<60; i++){
+            oCtx.moveTo(300,300);
+            oCtx.arc(300,300,100,i*6*Math.PI/180,(i+1)*6*Math.PI/180,false);
+        }
+        oCtx.stroke();
+        /*画1圆*/
+        oCtx.beginPath();
+        oCtx.arc(300,300,95,0,2*Math.PI,false);
+        oCtx.fillStyle = "#fff";
+        oCtx.fill();
+
+        /*画时针刻度*/
+        oCtx.beginPath();
+        for(var i=0; i<12; i++){
+            oCtx.moveTo(300,300);
+            oCtx.arc(300,300,95,i*30*Math.PI/180,i*30*Math.PI/180,false);
+        }
+        oCtx.stroke();
+
+        /*画2圆*/
+        oCtx.beginPath();
+        oCtx.arc(300,300,90,0,2*Math.PI,false);
+        oCtx.fillStyle = "#fff";
+        oCtx.fill();
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

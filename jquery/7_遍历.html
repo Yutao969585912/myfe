@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>遍历</title>
+    <title></title>
 </head>
 <body>
+<ul>
+    <li>001</li>
+    <li>002</li>
+    <li class="aa">003</li>
+    <li>004</li>
+    <li>005</li>
+    <li>006</li>
+</ul>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    //    $('li').filter('.aa').css('background','red');
+
+    $('ul').find('li').css('background','red').end().css('background','blue');
+
+
+</script>
 
 </body>
 </html>

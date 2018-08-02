@@ -2,9 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>本地存储</title>
+    <title></title>
 </head>
 <body>
+cookie
+
+<script>
+
+    var data = new Date();
+    data.setDate(25);
+    document.cookie = 'name = zhangsan;expires='+data;
+    document.cookie = 'age = 20';
+
+    console.log(document.cookie); //'name=zhangsan; age=20';
+
+    function setCookie(key,value,day){
+        var str = key +"="+value+";"    ;
+        if(day){
+            var date = new Date();
+
+            date.setDate( date.getDate()+day);
+
+            str += 'expires = '+date;
+        }
+        document.cookie = str;
+    }
+    //        setCookie('name','zhangsan');
+    //        setCookie('age','20',2);
+
+    function getCookie(key){
+        var sCookie = document.cookie;//'name=zhangsan; age=20'
+        var arr = sCookie.split('; '); //['name=zhangsan','age=20']
+        for(var i=0; i<arr.length; i++){
+            var arr1 = arr[i].split('=');   //'name=zhangsan' =>['name','zhangsan']
+            if(arr1[0] == key){
+                return arr1[1];
+            }
+        }
+    }
+    //        console.log(  getCookie('age')   );
+
+    function removeCookie(key){
+        setCookie(key,'',-1);
+    }
+
+
+
+
+</script>
 
 </body>
 </html>

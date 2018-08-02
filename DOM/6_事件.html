@@ -2,9 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>事件</title>
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+
+        }
+    </style>
 </head>
 <body>
+<div id="div1">
+
+</div>
+<input type="text" id="inp1"/>
+
+<script>
+    //        var oDiv = document.getElementById('div1');
+    /*oDiv.onmouseover = function(){
+        console.log('div1 over');
+    };
+    oDiv.onmousemove = function(){
+        console.log('div1 move');
+    };
+    oDiv.onmouseout = function(){
+        console.log('div1 out');
+    };
+    oDiv.onmousedown = function(){
+        console.log('div1 down');
+    };*/
+
+    //        var oIpt = document.getElementById('inp1');
+
+    /*oDiv.onkeydown = function(){
+        console.log('div1 keydown');
+    }
+    oDiv.onkeyup = function(){
+        console.log('div1 up');
+    }*/
+    /*
+            oIpt.onfocus = function(){
+                console.log('focus');
+            }*/
+
+
+
+
+    var oDiv = document.getElementById('div1');
+    //        事件  事件源 事件处理函数
+    oDiv.onclick = function(e){
+        console.log(e.clientX, e.clientY);
+//            console.log(111);
+
+//            e.target
+    }
+
+
+
+
+
+
+</script>
 
 </body>
 </html>

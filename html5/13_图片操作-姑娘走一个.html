@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+body{ background:#000; text-align:center;}
+#c1{ background:#fff;}
+</style>
+<script>
+function d2a(n){
+	return n*Math.PI/180;
+}
+window.onload=function(){
+	var oC=document.getElementById('c1');	
+	
+	var gd=oC.getContext('2d');
+	
+	var oImg=new Image();
+	
+	var count=0;
+	var step=0;
+	oImg.onload=function(){
+		setInterval(function(){
+			gd.clearRect(0,0,oC.width,oC.height);
+			gd.drawImage(
+				oImg,
+				32*count,96,32,48,
+				100+step,100,32,48
+			);
+			
+			step+=4;
+			count++;
+			if(count==4)count=0;
+		},100);
+	};
+	
+	oImg.src='pic2476.png';
+	
+};
+</script>
+</head>
+
+<body>
+<canvas id="c1" width="800" height="600"></canvas>
+</body>
+</html>

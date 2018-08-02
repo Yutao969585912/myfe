@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000000;
+        }
+        #canvas1{
+            background: #ffffff;
+            /*width: 600px;*/
+            /*height: 500px;*/
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas1" width="600" height="500"></canvas>
+    <script>
+        var oCanvas1 = document.querySelector('#canvas1');
+        var oCtx = oCanvas1.getContext('2d');
+        oCanvas1.onmousedown = function (e) {
+            oCtx.moveTo(e.clientX, e.clientY);
+
+            oCanvas1.onmousemove = function (e) {
+                oCtx.lineTo(e.clientX, e.clientY);
+                oCtx.stroke();
+            }
+        }
+        oCanvas1.onmouseup = function(){
+            oCanvas1.onmousemove = null;
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

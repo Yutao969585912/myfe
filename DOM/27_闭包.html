@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+<script>
+    /*
+    * 外部函数中一个内部函数，内部函数引用外部函数中的局部变量，
+    * 使得外部函数中的局部变量不释放，一直存在
+    *
+    * 缺点 变量一直存在 容易造成内存溢出
+    * */
+    var aLi = document.getElementsByTagName('li');
+
+    for(var i=0; i<aLi.length; i++){
+        (function(idx){//函数立即调用
+            aLi[idx].onclick = function(){
+                console.log(idx);
+            }
+        })(i);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

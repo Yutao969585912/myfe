@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    js数据类型
+    基本数据类型
+        number string boolean null undefined
+    引用数据类型
+        object array
+
+    返回undefined
+        定义变量没有赋值
+        函数没有传参返回undefined
+        访问对象下没有的属性
+        数组越界
+    typeof
+        number     "number"
+        string     "string"
+        boolean    "boolean"
+        null       "object"
+        undefined  "undefined"
+        array      "object"
+        object     "object"
+        function   "function"
+
+        arr instanceof Array arr是否是Array 下的一个实例化对象
+        arr.constructor 返回arr实例的构造函数
+
+
+
+
+    <script>
+        var str = 'abc';
+        var num = 20;
+        var arr = [1,2,3];
+       /* console.log(typeof str); //"string"
+        console.log(typeof num); //"number"
+        console.log(typeof arr);
+
+        function aa(){
+            console.log('111');
+        }
+        console.log(typeof aa);*/
+        var obj = {
+            name:'zs'
+        };
+
+        console.log(arr instanceof Array);
+        console.log(arr.constructor == Array); //返回实例对象的构造函数
+        console.log(obj instanceof Object);
+        console.log(obj.constructor == Object);
+
+        function aa(a,b){
+            console.log(arguments);
+            console.log(arguments.callee);
+        }
+
+        aa(1,2,3);
+
+
+
+
+    </script>
+
+
+</body>
+</html>

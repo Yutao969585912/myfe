@@ -2,22 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Canvas</title>
+    <title></title>
     <style>
         body{
-            background: black;
+            background: #000000;
         }
-        #can{
-
+        #cvs{
+            background: #ffffff;
         }
-
-
     </style>
-
-
 </head>
 <body>
-    <canvas id="can" width="50" height="60"> </canvas>
+<canvas id="cvs" width="500" height="400"></canvas>
+
+<script>
+    var oCvs = document.getElementById('cvs');
+
+    var ctx = oCvs.getContext('2d');
+
+    //        ctx.arc(250,200,100,0*Math.PI,2*Math.PI,false);
+    //        ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(50,50);
+    ctx.lineTo(300,300);
+    ctx.lineTo(50,300);
+    ctx.closePath();
+    ctx.stroke();
+
+
+
+    /*   ctx.lineWidth = 5;
+       ctx.lineTo(300,300);
+       ctx.lineTo(50,300);
+       ctx.strokeStyle = '#f00';
+       ctx.stroke();
+*/
+
+
+</script>
 
 </body>
 </html>

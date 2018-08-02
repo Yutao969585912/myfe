@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>transform-style</title>
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .div1{
+            width: 200px;
+            height: 200px;
+            border:2px dashed #000;
+            margin:50px auto;
+            -webkit-perspective: 800px;
+        }
+        .div2{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            transform: rotateY(45deg);
+            -webkit-transform-style: preserve-3d;
+        }
+        .div3{
+            width: 200px;
+            height: 200px;
+            background: #00ff00;
+            transform: rotateY(30deg);
+        }
+    </style>
 </head>
 <body>
+<div class="div1">
+    <div class="div2">
+        <div class="div3"></div>
+    </div>
+</div>
 
 </body>
 </html>

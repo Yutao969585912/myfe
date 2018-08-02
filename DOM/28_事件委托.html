@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul{
+            background: #ff0000;
+        }
+        li{
+            background: #0000ff;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">click</button>
+<ul>
+    <li>01</li>
+    <li>02</li>
+</ul>
+
+<script>
+    /*
+    事件委托
+    后生成元素的事件绑定问题
+    */
+    var aLi = document.getElementsByTagName('li');
+    var oBtn = document.getElementById('btn');
+    var oUl = document.getElementsByTagName('ul')[0];
+    /*for(var i=0; i<aLi.length; i++) {
+        aLi[i].onclick = function(){
+            console.log(this.innerHTML);
+        }
+    }*/
+
+    oUl.onclick = function(e){
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+
+        if(target.tagName == 'LI'){
+            console.log(target.innerHTML);
+        }
+    }
+
+    oBtn.onclick = function(){
+        var oLi = document.createElement('li');
+        oLi.innerHTML = Math.random();
+        oUl.appendChild(oLi);
+    }
+
+
+
+
+</script>
+
+</body>
+</html>

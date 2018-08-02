@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <button id="hide">hide</button>
+    <button id="show">show</button>
+    <button id="toggle">toggle</button>
+    <button id="animate">animate</button>
+
+    <button id="stop">stop</button>
+    <div id="div1"></div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        /*$('#hide').on('click',function(){
+            $('#div1').hide(2000,function(){
+                console.log('ok');
+            });
+
+            console.log('ok111');
+        });*/
+        $('#hide').on('click',function(){
+            $('#div1').slideUp(2000);
+        });
+        $('#toggle').on('click',function(){
+            $('#div1').toggle(500);
+        });
+        $('#animate').on('click',function(){
+            $('#div1').animate({
+                width:800
+            },2000).animate({
+                height:500
+            },2000)
+        });
+
+        $('#stop').on('click',function(){
+            $('#div1').stop(false,true);
+        });
+
+        var oUl = $('ul');
+
+        $('li',oUl)
+        $('ul li')
+        $(function(){
+
+        });
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

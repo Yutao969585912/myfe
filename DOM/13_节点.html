@@ -2,11 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>节点</title>
+    <title></title>
 </head>
 <body>
-    <script>
+<div id="div1">fghjkl</div>
+<!--注释-->
 
-    </script>
+
+<script>
+    /* 12       nodeType
+    *元素节点     1
+    *属性节点     2
+    *文本节点     3
+    * */
+    var oDiv = document.getElementById('div1');
+
+    var oTextNode = oDiv.firstChild;
+    console.log(oDiv.nodeType);
+    console.log(oTextNode.nodeType);
+
+    console.log(oDiv.nodeName);
+    console.log(oTextNode.nodeName);
+
+    console.log(oDiv.nodeValue);
+    console.log(oTextNode.nodeValue);
+
+
+
+</script>
 </body>
 </html>
