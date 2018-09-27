@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <link rel="stylesheet" href="reset.css">
+    <script src="../vue/vue.js"></script>
+    <script src="rem.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            color: inherit;
+        }
+        .page-main{
+            width: 640px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        /*carousel start*/
+        #carousel-map{
+            width: 7.5rem;
+            height: 5.59rem;
+            overflow: hidden;
+            position: absolute;
+            top: 2.25rem;
+        }
+        #carousel-map-content{
+            width: 200%;
+            height: 4.85rem;
+            overflow: hidden;
+            position: relative;
+        }
+        #carousel-map-content li{
+            width: 6.5rem;
+            height: 4.6rem;
+            font-size: 0;
+            background-color: #fff;
+            box-shadow: 0 0.02rem 0.08rem #c0c0c0;
+            position: absolute;
+            top: 0;
+            left: 0.5rem;
+        }
+        #carousel-map-content li img{
+            width: 6.22rem;
+            height: 3.5rem;
+            margin: 0.14rem 0.14rem 0 0.14rem;
+        }
+        #carousel-map-content li p{
+            width: 100%;
+            height: 0.3rem;
+            line-height: 0.3rem;
+            font-family: PingFangSC-Regular;
+            font-size: 0.3rem;
+            color: #333333;
+            letter-spacing: 0.01rem;
+            margin-top: 0.3rem;
+            text-align: center;
+        }
+        .carousel-map-btn{
+            list-style: none;
+            position: absolute;
+            bottom: 0.54rem;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+        }
+        .carousel-map-btn li{
+            width: 0.12rem;
+            height: 0.12rem;
+            border-radius: 50%;
+            opacity: 0.8;
+            background: #C3C3C3;
+            float: left;
+            margin: 0 0.08rem;
+        }
+        .carousel-map-btn li.selected{
+            background: #E33024;
+        }
+        .fade-enter{
+            transform: translateX(100%);
+        }
+        .fade-enter-active{
+            transition: transform 1.5s;
+        }
+        .fade-enter-to{
+            transform: translateX(0);
+        }
+        .fade-leave{
+            transform: translateX(0);
+        }
+        .fade-leave-active{
+            transition: transform 1.5s;
+        }
+        .fade-leave-to{
+            transform: translateX(-100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="page-main">
+        <div id="carousel-map">
+            <transition-group name="fade" tag="ul" id="carousel-map-content">
+                <li v-for="(obj,index) in imgs" :key="index" v-show="index == nowIndex">
+                    <a href="#">
+                        <img :src="obj.img" alt="">
+                        <p>{{obj.text}}</p>
+                    </a>
+                </li>
+            </transition-group>
+            <ul class="carousel-map-btn">
+                <li v-for="index in imgs.length" :class="{selected:index == (nowIndex + 1)}" @click="change(index)"></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        <!--轮播图-->
+        let vm1 = new Vue({
+            el:'#carousel-map',
+            data: {
+                imgs: [
+                    {
+                        img:'../CSS3/17_旋转合并的照片墙/images/1.jpg',
+                        text:'林志玲拒认爱言承旭 原因曝光旭原因曝光'
+                    },
+                    {
+                        img:'../CSS3/17_旋转合并的照片墙/images/2.jpg',
+                        text:'人生百年'
+                    },
+                    {
+                        img:'../CSS3/17_旋转合并的照片墙/images/3.jpg',
+                        text:'微电台是个好东西'
+                    },
+                    {
+                        img:'../CSS3/17_旋转合并的照片墙/images/4.jpg',
+                        text:'终于做出来了'
+                    },
+                ],
+                nowIndex:0,
+                timer:''
+            },
+            methods: {
+                change(index){
+                    this.nowIndex = index - 1;
+                    clearInterval(timer);
+                    timer = setInterval(() => {
+                        this.nowIndex++;
+                        if(this.nowIndex == this.imgs.length){
+                            this.nowIndex = 0;
+                        }
+                    },3000);
+                }
+            },
+            created(){
+                timer = setInterval(() => {
+                    this.nowIndex++;
+                    if(this.nowIndex == this.imgs.length){
+                        this.nowIndex = 0;
+                    }
+                },1500)
+            }
+        })
+    </script>
+
+</body>
+</html>

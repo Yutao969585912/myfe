@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [0,1,0,2,1,0,1,3,2,1,2,1];
+    var arr = [read_line()];
+    var a = eval(arr.join("+"));
+    var max = Math.max.apply(null,arr);
+    var b,d;
+    for(var i=0; i<arr.length; i++){
+        if(arr[i] < max){
+            for(var j=i+1; j<arr.length; j++){
+                if(arr[i] <= arr[j]){
+                    break;
+                }else{
+                    arr[j] = arr[i];
+                    break;
+                }
+            }
+        }
+        if(arr[i] == max){
+            b=i;
+            for(var j=arr.length-1;j>i;j--){
+                if(arr[j] == max){
+                    d=j;
+                    for(b;b<d;b++){
+                        arr[b] = max;
+                    }
+                }
+            }
+        }else{
+            for(var n=d; n<arr.length; n++){
+                if(arr[d] >= arr[d+1]){
+                    break;
+                }else{
+                    arr[d] = arr[d+1];
+                    break;
+                }
+            }
+        }
+    }
+    var x = eval(arr.join("+"));
+    var p = x - a;
+    print(a);
+
+</script>
+</body>
+</html>

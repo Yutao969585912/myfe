@@ -53,7 +53,7 @@
                     this.elements = getEleByClass(sel.substring(1));
                 }
             }
-            if(typeof sel == 'function'){
+            if(typeof sel == 'function'){//文档就绪函数
                 document.addEventListener('DOMContentLoad',sel,false);
             }
         };

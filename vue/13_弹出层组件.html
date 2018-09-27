@@ -34,7 +34,7 @@
 <body>
     <div id="app">
         <button @click="showRegister = true; showLogin = false;">注册</button>
-        <button @click="showLogin = true; showRegister = flase;">登录</button>
+        <button @click="showLogin = true; showRegister = false;">登录</button>
         <!-- 登录 -->
         <my-dialog title="登录" v-if="showLogin" @close="del">
             用户名:<input type="text"><br>
